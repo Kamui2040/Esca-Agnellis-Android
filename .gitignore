@@ -1,0 +1,43 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (SDK path, etc.)
+local.properties
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.aab
+*.apk
+output-metadata.json
+
+# Private R8/retrace outputs
+**/build/outputs/mapping/
+
+# IntelliJ / Android Studio project-local files
+*.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Signing/keystore files
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pkcs12
+keystore.properties
+
+# Google Services / API config
+google-services.json
+
+# Android profiling
+*.hprof

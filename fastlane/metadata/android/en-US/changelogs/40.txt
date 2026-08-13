@@ -1,0 +1,7 @@
+New in 0.16.0:
+• optional companion with rewards and small local interactions
+• name the companion locally and back it up separately
+• create PDF reports directly on the device
+• improvements to languages, themes, and usability
+• unified first launch with info, changelog, licence, and credits
+• still local, with no account, ads, or tracking

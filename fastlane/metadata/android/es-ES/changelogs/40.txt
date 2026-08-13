@@ -1,0 +1,7 @@
+Novedades de 0.16.0:
+• acompañante opcional con recompensas y pequeñas interacciones locales
+• nombre local y copia de seguridad separada del acompañante
+• informes PDF creados directamente en el dispositivo
+• mejoras de idiomas, temas y uso
+• primer inicio unificado con información, cambios, licencia y créditos
+• sigue siendo local, sin cuenta, anuncios ni seguimiento

@@ -1,0 +1,48 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">#F7FAF4</item>
+        <item name="android:colorAccent">#4E8F55</item>
+    </style>
+
+    <style name="EscaDialogStandardLight" parent="android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:colorAccent">#4E8F55</item>
+        <item name="android:textColorPrimary">#2B3229</item>
+        <item name="android:textColorSecondary">#5C6B58</item>
+        <item name="android:colorControlNormal">#5C6B58</item>
+        <item name="android:colorControlActivated">#4E8F55</item>
+    </style>
+
+    <style name="EscaDialogStandardDark" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#2A302C</item>
+        <item name="android:colorAccent">#93C572</item>
+        <item name="android:textColorPrimary">#EAEBE4</item>
+        <item name="android:textColorSecondary">#BCC7B8</item>
+        <item name="android:colorControlNormal">#BCC7B8</item>
+        <item name="android:colorControlActivated">#93C572</item>
+    </style>
+
+    <style name="EscaDialogPastelLight" parent="android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#FFEFDA</item>
+        <item name="android:colorAccent">#689A70</item>
+        <item name="android:textColorPrimary">#514539</item>
+        <item name="android:textColorSecondary">#7E6958</item>
+        <item name="android:colorControlNormal">#7E6958</item>
+        <item name="android:colorControlActivated">#689A70</item>
+    </style>
+
+    <style name="EscaDialogPastelDark" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#2E2931</item>
+        <item name="android:colorAccent">#B2D197</item>
+        <item name="android:textColorPrimary">#E8DCD1</item>
+        <item name="android:textColorSecondary">#D4C2B5</item>
+        <item name="android:colorControlNormal">#D4C2B5</item>
+        <item name="android:colorControlActivated">#B2D197</item>
+    </style>
+</resources>

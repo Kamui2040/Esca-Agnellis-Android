@@ -1,0 +1,7 @@
+Nouveautés de la version 0.16.0 :
+• compagnon facultatif avec récompenses et petites interactions locales
+• nom local et sauvegarde séparée du compagnon
+• rapports PDF créés directement sur l'appareil
+• améliorations des langues, thèmes et de l'utilisation
+• premier lancement unifié avec informations, nouveautés, licence et crédits
+• toujours local, sans compte, publicité ni suivi

@@ -1,0 +1,166 @@
+import java.util.Locale
+import java.util.Properties
+
+plugins {
+    id 'com.android.application'
+}
+
+def appProject = project
+def escaVersionCode = 40
+def escaVersionName = '0.16.0'
+def signingPropertiesPath = System.getenv('ESCA_SIGNING_PROPERTIES')
+def signingProperties = new Properties()
+def signingPropertiesFile = signingPropertiesPath ? file(signingPropertiesPath) : null
+def signingPropertiesLoadFailure = null
+
+def requiredSigningKeys = [
+        'storeFile',
+        'storePassword',
+        'keyAlias',
+        'keyPassword'
+]
+
+if (signingPropertiesFile != null && signingPropertiesFile.isFile()) {
+    try {
+        signingPropertiesFile.withInputStream {
+            signingProperties.load(it)
+        }
+    }
+    catch (Exception ex) {
+        signingPropertiesLoadFailure = ex
+    }
+}
+
+def missingSigningKeys = requiredSigningKeys.findAll {
+    !signingProperties.getProperty(it)?.trim()
+}
+
+def configuredStoreFile = signingProperties.getProperty('storeFile') ?
+        file(signingProperties.getProperty('storeFile')) :
+        null
+
+android {
+    namespace 'com.k2040.escaagnellis'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.k2040.escaagnellis'
+        minSdk 26
+        targetSdk 35
+        versionCode escaVersionCode
+        versionName escaVersionName
+        manifestPlaceholders = [appLabel: 'Esca Agnellis']
+    }
+
+    signingConfigs {
+        if (signingPropertiesLoadFailure == null &&
+                signingPropertiesFile != null &&
+                signingPropertiesFile.isFile() &&
+                missingSigningKeys.isEmpty() &&
+                configuredStoreFile != null &&
+                configuredStoreFile.isFile()) {
+            release {
+                storeFile configuredStoreFile
+                storePassword signingProperties.getProperty('storePassword')
+                keyAlias signingProperties.getProperty('keyAlias')
+                keyPassword signingProperties.getProperty('keyPassword')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+            manifestPlaceholders = [appLabel: 'Esca Agnellis Debug']
+        }
+
+        release {
+            if (signingConfigs.findByName('release') != null) {
+                signingConfig signingConfigs.release
+            }
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+
+        fdroid {
+            initWith release
+            signingConfig null
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.outputs.each { output ->
+            output.outputFileName.set("Esca-Agnellis-v${escaVersionName}-vc${escaVersionCode}-${variant.buildType}.apk")
+        }
+    }
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    def releaseTaskScheduled = taskGraph.allTasks.any { task ->
+        task.project == appProject &&
+                task.name.toLowerCase(Locale.ROOT).contains('release')
+    }
+
+    if (!releaseTaskScheduled) {
+        return
+    }
+
+    if (signingPropertiesFile == null) {
+        throw new GradleException(
+                'Release signing is not configured. Set ESCA_SIGNING_PROPERTIES to the local keystore.properties file.'
+        )
+    }
+
+    if (!signingPropertiesFile.isFile()) {
+        throw new GradleException(
+                "ESCA_SIGNING_PROPERTIES does not point to a readable file: ${signingPropertiesFile}"
+        )
+    }
+
+    if (signingPropertiesLoadFailure != null) {
+        throw new GradleException(
+                "Release signing properties could not be read: ${signingPropertiesFile}",
+                signingPropertiesLoadFailure
+        )
+    }
+
+    if (!missingSigningKeys.isEmpty()) {
+        throw new GradleException(
+                "Release signing properties are incomplete. Missing: ${missingSigningKeys.join(', ')}"
+        )
+    }
+
+    if (configuredStoreFile == null || !configuredStoreFile.isFile()) {
+        throw new GradleException(
+                "Release keystore does not exist: ${configuredStoreFile}"
+        )
+    }
+
+    if (android.signingConfigs.findByName('release') == null) {
+        throw new GradleException(
+                'Release signing configuration was not created.'
+        )
+    }
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}

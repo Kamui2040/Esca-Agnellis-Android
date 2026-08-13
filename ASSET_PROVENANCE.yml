@@ -1,0 +1,686 @@
+# Esca Agnellis tracked visual-asset provenance inventory
+# Phase 1 records exact bytes and blocker state; it is not a REUSE compliance declaration.
+schema_version: 1
+inventory_version: "2026-07-24-phase-1"
+tracked_visual_asset_count: 31
+scope_note: "This inventory covers the 31 runtime/source visual assets. Localized Fastlane store screenshots are excluded from this count and are tracked separately in fastlane/SCREENSHOT_PROVENANCE.md."
+assets:
+  - path: "app/src/main/res/drawable-nodpi/about_wolf.png"
+    sha256: "a3c3a6f63c1e1864df2b84709b79bc24d0f00a3420baea46cb742876dae74881"
+    size_bytes: 3308930
+    dimensions_or_viewport: "1254x1254 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 331393
+      partial: 0
+      opaque: 1241123
+    transparency_note: "True transparency exists outside the circular artwork; the file has no partial-alpha pixels."
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: "Complete later in-app visual QA at actual rendered size before release acceptance."
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_backdrop_day.png"
+    sha256: "75a9e3a5d0b362036b7292afce276b313459504d43a44d1a5e3f0929a97387d2"
+    size_bytes: 2108091
+    dimensions_or_viewport: "864x1536 px"
+    media_type: "image/png"
+    alpha_state: "opaque"
+    alpha_pixels:
+      fully_transparent: 0
+      partial: 0
+      opaque: 1327104
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_backdrop_night.png"
+    sha256: "3a72ff412bf925655ed90d948de0f45f540ca2d701e57a8d871fa966aa9953c7"
+    size_bytes: 1925626
+    dimensions_or_viewport: "864x1536 px"
+    media_type: "image/png"
+    alpha_state: "opaque"
+    alpha_pixels:
+      fully_transparent: 0
+      partial: 0
+      opaque: 1327104
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_barn_layer_day.png"
+    sha256: "02e70afd2095d7bd64faaf590690bc731553b33e34eb9cafa1182b66a9babcab"
+    size_bytes: 2144426
+    dimensions_or_viewport: "864x1536 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 599871
+      partial: 7327
+      opaque: 719906
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_barn_layer_night.png"
+    sha256: "f2edd22276a19cee2d17c15b2738e8ed1962433087d28667a45300d0b5c7805f"
+    size_bytes: 1987029
+    dimensions_or_viewport: "864x1536 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 599544
+      partial: 5966
+      opaque: 721594
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_effect_cuddle_heart.png"
+    sha256: "33324f7f0f55bab69e92e6844f03114626d9c7c14e0e9b23bf93511d1d276b4c"
+    size_bytes: 78591
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 196072
+      partial: 5008
+      opaque: 61064
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_lamb_pose_cuddle.png"
+    sha256: "f7dff61bb3284a2a98d991f1914d1f870638a6c52510ecb7240005e61c8e6b45"
+    size_bytes: 169120
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 184091
+      partial: 6202
+      opaque: 71851
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_lamb_pose_eating.png"
+    sha256: "75fd71427727d537fd4ceef0fe6cad4c77609b8e318d7ec4301dd94dc045e804"
+    size_bytes: 215430
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 160016
+      partial: 6112
+      opaque: 96016
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_lamb_pose_happy.png"
+    sha256: "56585d19c1c5ef7327d395f1885f5000aaaa977f0b09795a07af49de170bde1b"
+    size_bytes: 206489
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 166288
+      partial: 6050
+      opaque: 89806
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_lamb_pose_idle.png"
+    sha256: "1350cb8329d5bfe2bf51a9435e87e24c04fe61617fc77fd9fc9fb3707227c681"
+    size_bytes: 181250
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 176888
+      partial: 10795
+      opaque: 74461
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_lamb_pose_sleeping.png"
+    sha256: "1fdc5aa68d40fe78157b775c0a0de4c46e1e447557880615986fc8f539ada868"
+    size_bytes: 163293
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 183767
+      partial: 3820
+      opaque: 74557
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_prop_play_ball.png"
+    sha256: "0cac7101ad85af39dd39063a397fead810afd10063510f4883300f03721fda67"
+    size_bytes: 173973
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 125341
+      partial: 7023
+      opaque: 129780
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_prop_treat_bowl.png"
+    sha256: "8655b90342efd804258335b9a7ed91c0734bac190ffb5ddab078d63359ef5a2b"
+    size_bytes: 165618
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 178176
+      partial: 5776
+      opaque: 78192
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/companion_token_flower_bisexual.png"
+    sha256: "5926f4e00bab39d81992b5c4b6d2e3f857e1a1005bdffc9994937c05d47388d3"
+    size_bytes: 301945
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 145429
+      partial: 5618
+      opaque: 111097
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_apple.png"
+    sha256: "c2f23837381d053b6ba85482cdd580becf381cf74b1b55a1fcf70bc256278946"
+    size_bytes: 654264
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 297950
+      partial: 7611
+      opaque: 284263
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_butter.png"
+    sha256: "d830e86d2757c9a29672f8716725426a3948b106efb8b6102c491fbd0995bfeb"
+    size_bytes: 367789
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 428330
+      partial: 5864
+      opaque: 155630
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_carrot.png"
+    sha256: "f1a01330c6f6724fe76b21a997b07b2f23554e71a85d28798685e1620807fe11"
+    size_bytes: 313139
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 474027
+      partial: 5729
+      opaque: 110068
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_dessert.png"
+    sha256: "ef7cd233df64f9248def1a64a1154503c6a267f3b127c6ee297c822acc2a789c"
+    size_bytes: 506097
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 365151
+      partial: 7987
+      opaque: 216686
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_fish_chicken.png"
+    sha256: "f295b98c69b261b1e3572649ccd85c7243b3e9cae894bb8ca82f5ff2fe307ac7"
+    size_bytes: 403866
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 433808
+      partial: 7594
+      opaque: 148422
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_fruit_vegetables.png"
+    sha256: "93af4baea3ed7c6a1e862b9721dd7af73757b49ab853402495e65b098e7ae1d1"
+    size_bytes: 253629
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 168004
+      partial: 5244
+      opaque: 88896
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_legumes_meat_fish_egg.png"
+    sha256: "7ce4ec1d6f37181ebed8da321871ba0a3d4510e24c0aa078a8d76a8e9d7bc626"
+    size_bytes: 242934
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 170190
+      partial: 7156
+      opaque: 84798
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_milk_cheese.png"
+    sha256: "290f6535d2387ee075cdba851c659b182ec8aa366ff0cedc447e13117158bc42"
+    size_bytes: 583910
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 319194
+      partial: 7224
+      opaque: 263406
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_nuts_seeds.png"
+    sha256: "f73d3b24291192061b2398229de6d129640bb6582169597c602848833dc65b59"
+    size_bytes: 301128
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 151971
+      partial: 8553
+      opaque: 101620
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_oil.png"
+    sha256: "8e3ee3dcc74d4d578d5b1533095fa49f0b252eeb7102d2d3d1f79ecd2040cce7"
+    size_bytes: 520247
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 393426
+      partial: 12804
+      opaque: 183594
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_water.png"
+    sha256: "31344bb56c45f4177ec5a92667b55424f54556a781fb9aa77a847cdd832bfce7"
+    size_bytes: 499689
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 351903
+      partial: 5974
+      opaque: 231947
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_wheat.png"
+    sha256: "964b86c142d3600d3972f9473630063717b6eaf5f2e40d5bce550337bca958b6"
+    size_bytes: 371496
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 453496
+      partial: 15591
+      opaque: 120737
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable-nodpi/food_wheat_potato.png"
+    sha256: "0c3968c9a16559d51edb93ba8a97f6877a3438ff3155e920429f15a795ac8686"
+    size_bytes: 613560
+    dimensions_or_viewport: "768x768 px"
+    media_type: "image/png"
+    alpha_state: "genuine-alpha"
+    alpha_pixels:
+      fully_transparent: 361355
+      partial: 16007
+      opaque: 212462
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable/ic_lamb_bee_carrot.png"
+    sha256: "46457583d55d3a21be55c6de0e6772dd55e821e828df183f0ba0e2a13788a943"
+    size_bytes: 577805
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "opaque"
+    alpha_pixels:
+      fully_transparent: 0
+      partial: 0
+      opaque: 262144
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/drawable/ic_lamb_icon.xml"
+    sha256: "1149e30e491e47d534d35d96fd7ed8a0f3a0050c6144dfe6160872d2509b400d"
+    size_bytes: 2027
+    dimensions_or_viewport: "108x108 viewport"
+    media_type: "application/xml; profile=android-vector-drawable"
+    alpha_state: "opaque-vector-background"
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    sha256: "ccab26918eb27e2a859e91cf3a06bd0e3adb74dcfd263bc03eac3790c9922564"
+    size_bytes: 509284
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "opaque"
+    alpha_pixels:
+      fully_transparent: 0
+      partial: 0
+      opaque: 262144
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false
+  - path: "docs/images/esca-symbol.png"
+    sha256: "ccab26918eb27e2a859e91cf3a06bd0e3adb74dcfd263bc03eac3790c9922564"
+    size_bytes: 509284
+    dimensions_or_viewport: "512x512 px"
+    media_type: "image/png"
+    alpha_state: "opaque"
+    alpha_pixels:
+      fully_transparent: 0
+      partial: 0
+      opaque: 262144
+    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+    rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
+    licence: "CC-BY-4.0"
+    attribution: "Esca Agnellis artwork by K2040"
+    publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
+    publication_blocker: false
+    blocker_state: "rights-cleared"
+    required_action: null
+    unresolved_rights_action: false
+    third_party_source_inputs: "none-declared"
+    ai_generated_output_may_not_be_unique: true
+    third_party_trademark_ownership_claimed: false

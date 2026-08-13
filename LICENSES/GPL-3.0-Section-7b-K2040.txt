@@ -1,0 +1,13 @@
+# Esca Agnellis GPLv3 Section 7(b) Additional Term
+
+Copyright (c) 2026 K2040.
+
+For original Esca Agnellis source code and project build scripts authored by K2040 and licensed under GNU GPLv3 only (`GPL-3.0-only`), the following additional term applies under section 7(b) of GNU GPLv3:
+
+When conveying that material, you must preserve the following specified reasonable legal notice and author attribution in that material or in the Appropriate Legal Notices displayed by works containing it:
+
+`Copyright (c) 2026 K2040.`
+
+This additional term applies only to material for which K2040 has or can give appropriate copyright permission. It does not modify the standard GNU GPLv3 licence text. The unmodified GNU GPLv3 text in `GPL-3.0-only.txt` remains controlling together with this applicable additional term.
+
+This term does not replace or alter the separate licences and notices governing third-party material, Gradle wrapper components, project artwork, documentation, trademarks, or official-build identification.

@@ -1,0 +1,7 @@
+Neu in 0.16.0:
+• optionaler Begleiter mit Belohnungen und kleinen lokalen Interaktionen
+• Begleiter lokal benennen und separat sichern
+• PDF-Berichte direkt auf dem Gerät erstellen
+• Verbesserungen bei Sprachen, Themen und Bedienung
+• einheitlicher erster Start mit Infos, Changelog, Lizenz und Credits
+• weiterhin lokal, ohne Konto, Werbung oder Tracking

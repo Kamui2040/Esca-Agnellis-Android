@@ -1,0 +1,19 @@
+Esca Agnellis est une application Android locale pour suivre une pyramide alimentaire de manière bienveillante et sans pression.
+
+L'application fonctionne sans compte et sans autorisation Internet. Les données de suivi restent sur l'appareil. Il n'y a ni publicité, ni télémétrie, ni analyse d'utilisation, ni synchronisation dans le cloud, ni collecte automatique de données en arrière-plan.
+
+Fonctions :
+• suivi quotidien des portions
+• vue d'ensemble et statistiques de votre propre historique
+• repères de portions fondés sur la main et des mesures domestiques
+• sauvegarde et restauration locales via le sélecteur de documents Android
+• rapports PDF locaux
+• allemand, anglais, espagnol, français et portugais européen
+• thèmes clairs, sombres et pastel chaleureux
+• compagnon local facultatif, désactivé par défaut et sauvegardé séparément
+
+Le compagnon utilise uniquement des jetons gagnés localement dans l'application. Il n'y a aucun achat, aucune publicité et aucun déblocage payant.
+
+Les indications de portions sont fournies uniquement à titre général. Esca Agnellis ne fournit pas de conseil médical, diététique ou nutritionnel individualisé et n'est pas un produit officiel du BZfE ou du BLE.
+
+Le code de l'application et les scripts de compilation sont des logiciels libres sous GPL-3.0-only.

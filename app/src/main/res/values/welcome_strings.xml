@@ -1,0 +1,19 @@
+<resources>
+    <string name="welcome_action_exit">Beenden</string>
+    <string name="welcome_action_continue">Weiter</string>
+    <string name="welcome_action_back">Zurück</string>
+    <string name="welcome_action_close">Schließen</string>
+    <string name="welcome_avatar_description">Persönlicher Avatar von K2040</string>
+    <string name="welcome_app_summary">Eine freundliche Ernährungspyramide für den Alltag – zur allgemeinen Dokumentation und Orientierung, nicht als medizinische, diätische oder individuelle Ernährungsberatung.</string>
+    <string name="welcome_trust_summary">Lokal · Offline · Ohne Konto · Keine Werbung · Kein Tracking</string>
+    <string name="welcome_trust_local">Lokal · Offline · Ohne Konto</string>
+    <string name="welcome_trust_tracking">Keine Werbung · Kein Tracking</string>
+    <string name="welcome_licence_summary">Code: GNU GPLv3 mit einer K2040-Attributionserhaltungsklausel nach GPLv3 §7(b). Projektgrafiken: CC BY 4.0; diese Lizenz verlangt unabhängig davon eine Namensnennung. Drittanbieter-Abhängigkeiten: ihre jeweiligen Lizenzen und Hinweise bleiben erhalten.</string>
+    <string name="welcome_credits_title">Danke / Credits</string>
+    <string name="welcome_support_description">Ko-fi ist eine freiwillige Möglichkeit, die Entwicklung zu unterstützen. Dadurch werden keine Funktionen freigeschaltet und das Verhalten der App ändert sich nicht.</string>
+    <string name="welcome_support_open">Ko-fi öffnen</string>
+    <string name="welcome_state_collapsed">Eingeklappt</string>
+    <string name="welcome_state_expanded">Ausgeklappt</string>
+    <string name="welcome_support_unavailable">Ko-fi konnte nicht geöffnet werden.</string>
+    <string name="welcome_ack_save_failed">Die Zustimmung konnte nicht gespeichert werden.</string>
+</resources>

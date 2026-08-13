@@ -1,0 +1,7 @@
+Novidades na versão 0.16.0:
+• companheiro opcional com recompensas e pequenas interações locais
+• nome local e cópia de segurança separada do companheiro
+• relatórios PDF criados diretamente no dispositivo
+• melhorias de idiomas, temas e utilização
+• primeiro arranque unificado com informações, novidades, licença e créditos
+• continua local, sem conta, publicidade ou rastreio

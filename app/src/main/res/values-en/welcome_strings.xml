@@ -1,0 +1,19 @@
+<resources>
+    <string name="welcome_action_exit">Exit</string>
+    <string name="welcome_action_continue">Continue</string>
+    <string name="welcome_action_back">Back</string>
+    <string name="welcome_action_close">Close</string>
+    <string name="welcome_avatar_description">Personal avatar of K2040</string>
+    <string name="welcome_app_summary">A friendly nutrition pyramid for everyday use—for general documentation and guidance, not medical, dietary, or individualized nutrition advice.</string>
+    <string name="welcome_trust_summary">Local · Offline · No account · No ads · No tracking</string>
+    <string name="welcome_trust_local">Local · Offline · No account</string>
+    <string name="welcome_trust_tracking">No ads · No tracking</string>
+    <string name="welcome_licence_summary">Code: GNU GPLv3 with a GPLv3 §7(b) K2040 attribution-preservation term. Project artwork: CC BY 4.0, which independently requires attribution. Third-party dependencies: retain their respective licences/notices.</string>
+    <string name="welcome_credits_title">Thanks / Credits</string>
+    <string name="welcome_support_description">Ko-fi is an optional way to support development. It does not unlock features or change how the app behaves.</string>
+    <string name="welcome_support_open">Open Ko-fi</string>
+    <string name="welcome_state_collapsed">Collapsed</string>
+    <string name="welcome_state_expanded">Expanded</string>
+    <string name="welcome_support_unavailable">Ko-fi could not be opened.</string>
+    <string name="welcome_ack_save_failed">The acknowledgement could not be saved.</string>
+</resources>

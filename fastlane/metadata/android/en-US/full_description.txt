@@ -1,0 +1,19 @@
+Esca Agnellis is a local Android app for friendly, low-pressure food-pyramid tracking.
+
+The app works without an account and without Internet permission. Tracking data stays on the device. There are no ads, telemetry, analytics, cloud sync, or automatic background data collection.
+
+Features:
+• daily portion tracking
+• overview and statistics for your own history
+• portion guidance using hand and household measures
+• local backup and restore through Android's document picker
+• local PDF reports
+• German, English, Spanish, French, and European Portuguese
+• light, dark, and cozy pastel themes
+• an optional local companion, disabled by default and backed up separately
+
+The companion uses only locally earned in-app tokens. There are no purchases, ads, or paid unlocks.
+
+Portion information is general orientation only. Esca Agnellis is not medical, dietary, or individualized nutritional advice and is not an official BZfE or BLE product.
+
+The application code and build scripts are free software under GPL-3.0-only.

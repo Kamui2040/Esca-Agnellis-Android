@@ -1,0 +1,103 @@
+<resources>
+    <string name="header_pyramid">Food pyramid</string>
+    <string name="header_subtitle">Esca Agnellis · Check off today’s portions</string>
+    <string name="nav_overview">Overview</string><string name="nav_today">Today</string><string name="nav_portions">Portions</string><string name="nav_statistics">Statistics</string>
+    <string name="date_today_format">Today, %2$s %1$d</string><string name="date_full_format">%1$s, %3$s %2$d</string><string name="month_year_format">%1$s %2$d</string>
+    <string name="stats_this_week">This week</string><string name="stats_this_month">This month</string><string name="stats_total">All time</string>
+    <string name="motivation_title">Small steps, big impact</string><string name="motivation_body">You’re doing great! Every check counts.</string>
+    <string name="portions_drinks_title">Drinks · 6</string><string-array name="portions_drinks_examples"><item>Water</item></string-array><string-array name="portions_drinks_measures"><item>1 large glass</item></string-array>
+    <string name="portions_produce_title">Fruit &amp; vegetables · 5</string><string-array name="portions_produce_examples"><item>Large pieces</item><item>Small pieces, chopped fruit or vegetables, salad</item></string-array><string-array name="portions_produce_measures"><item>1 hand</item><item>2 cupped hands</item></string-array>
+    <string name="portions_grains_title">Bread, grains &amp; sides · 4</string><string-array name="portions_grains_examples"><item>Bread</item><item>Flakes</item><item>Pasta, rice, potatoes</item></string-array><string-array name="portions_grains_measures"><item>1–2 slices / whole palm</item><item>2 hands</item><item>2 hands</item></string-array>
+    <string name="portions_dairy_title">Milk &amp; dairy · 2</string><string-array name="portions_dairy_examples"><item>Cheese</item><item>Milk</item><item>Yoghurt</item></string-array><string-array name="portions_dairy_measures"><item>1 slice</item><item>1 glass</item><item>1 cup</item></string-array>
+    <string name="portions_nuts_title">Nuts &amp; seeds · 1</string><string-array name="portions_nuts_examples"><item>Walnuts</item><item>Almonds</item><item>Flaxseed</item></string-array><string-array name="portions_nuts_measures"><item>1 small handful</item></string-array>
+    <string name="portions_protein_title">Pulses, meat, fish &amp; egg · 1</string><string-array name="portions_protein_examples"><item>Pulses</item><item>Tofu / similar</item><item>Meat / fish</item><item>Sausage</item><item>Egg</item></string-array><string-array name="portions_protein_measures"><item>2 hands</item><item>1 palmful</item><item>1 palm-sized piece</item><item>1 slice</item><item>1 egg</item></string-array>
+    <string name="portions_fats_title">Oils &amp; fats · 2</string><string-array name="portions_fats_examples"><item>Olive oil</item><item>Butter</item></string-array><string-array name="portions_fats_measures"><item>1 tablespoon</item></string-array>
+    <string name="portions_extras_title">Extras · 1</string><string-array name="portions_extras_examples"><item>Snacks</item></string-array><string-array name="portions_extras_measures"><item>1 handful or 1 glass</item></string-array>
+    <string name="portions_reference_hint">Hand and household measures are a friendly, non-binding everyday guide.</string>
+    <string name="settings_title">Settings</string><string name="settings_language">Language</string><string name="settings_language_description">Preferences</string><string name="language_title">Language</string>
+    <string name="language_system">System</string><string name="language_german">Deutsch</string><string name="language_english">English</string><string name="language_spanish">Español</string><string name="language_french">Français</string><string name="language_portuguese_portugal">Português (Portugal)</string>
+    <string name="settings_color_scheme">Theme</string><string name="theme_system">System default</string><string name="theme_light">Light</string><string name="theme_dark">Dark</string>
+    <string name="settings_style">Data</string><string name="style_standard">Standard</string><string name="style_pastel_cozy">Cosy pastel</string>
+    <string name="settings_companion_section">Companion</string><string name="settings_companion">Companion</string><string name="settings_companion_name">Name</string><string name="settings_companion_name_description">No name set yet.</string><string name="settings_companion_name_current_format">Current: %1$s</string><string name="companion_enabled">Enabled</string><string name="companion_disabled">Off</string><string name="companion_unavailable">Currently unavailable</string><string name="companion_title">Your companion</string><string name="companion_preview_description">Rewards are already being tracked.</string><string name="companion_balance">Tokens</string><string name="companion_balance_format">%1$d</string><string name="companion_interactions_title">Little interactions</string><string name="companion_interaction_feed_treat">Treat</string><string name="companion_interaction_feed_treat_description">Share a small reward.</string><string name="companion_interaction_play_description">Play together for a moment.</string><string name="companion_interaction_cuddle_description">Share a warm cuddle.</string><string name="companion_interaction_play">Play</string><string name="companion_interaction_cuddle">Pet</string><string name="companion_interaction_cost_unit">Tokens</string><string name="companion_name_dialog_title">Set companion name</string><string name="companion_name_dialog_subtitle">The name stays local to this device.</string><string name="companion_name_hint">Name</string><string name="action_save">Save</string><string name="action_clear">Clear</string><string name="snackbar_companion_enabled">Your companion is by your side.</string><string name="snackbar_companion_disabled">Your companion is having a little rest now.</string><string name="snackbar_companion_enabled_with_name">%1$s is by your side.</string><string name="snackbar_companion_disabled_with_name">%1$s is taking a rest now.</string><string name="snackbar_companion_unavailable">Companion is currently unavailable</string><string name="snackbar_companion_name_saved">Name saved</string><string name="snackbar_companion_name_cleared">Name cleared</string><string name="snackbar_companion_name_invalid">Name is invalid or too long</string><string name="snackbar_companion_name_unavailable">Name is currently unavailable</string><string name="snackbar_companion_interaction_success">That felt nice.</string><string name="snackbar_companion_interaction_insufficient">There aren’t enough free Tokens available for that right now.</string><string name="snackbar_companion_interaction_unavailable">That interaction is unavailable right now.</string>
+    <string name="settings_lookup">References</string>
+    <string name="settings_portion_help">Portion guide</string><string name="settings_portion_help_description">Hand and household measures as guidance</string>
+    <string name="settings_bzfe_source">Official BZfE source</string><string name="settings_bzfe_source_description">Food pyramid &amp; hand measure</string>
+    <string name="settings_backup">Backup</string><string name="settings_backup_description">Progress and settings</string><string name="settings_about">About</string><string name="settings_about_description">Version, Ko-fi and more</string>
+    <string name="snackbar_theme_saved">Theme saved</string><string name="snackbar_style_saved">Style saved</string>
+    <string name="portion_help_title">Portion guidance</string><string name="portion_help_subtitle">General guidance</string><string name="action_understood">Got it</string>
+    <string name="portion_help_intro">The portion guide provides general everyday guidance.</string>
+    <string-array name="portion_help_bullets"><item>Individual needs may vary.</item><item>Hand and household measures are the main guide.</item><item>The information is deliberately general and is not a fixed target.</item><item>Portions may look different depending on the food and preparation.</item><item>The app does not provide medical, dietary or individual nutrition advice.</item><item>Esca Agnellis is not an official BZfE or BLE service.</item></string-array>
+    <string name="portion_help_source_note">The linked BZfE page is a publicly available source for the underlying guidance.</string>
+    <string name="about_sources">Sources</string>
+    <string name="about_contributors">Thanks / Contributors</string>
+    <string name="about_sources_intro">Esca Agnellis is an independent K2040 project. Public BZfE material on the food pyramid and hand measure is used as factual orientation; BZfE/BLE artwork, logos or icons are not copied.</string>
+    <string name="license_code_heading">Code</string>
+    <string name="license_artwork_heading">Project artwork</string>
+    <string name="license_third_party_heading">Third-party</string>
+    <string name="license_usage_heading">Use &amp; notices</string>
+    <string name="license_open_gpl">Read the full GNU GPLv3</string>
+    <string name="license_open_cc">Read the full CC BY 4.0</string>
+    <string name="license_open_third_party">Read third-party notices</string>
+    <string name="license_artwork_summary">Project artwork is licensed under CC BY 4.0 only to the extent licensable rights exist under applicable law; where no such right exists, K2040 asserts no copyright restriction over that material. Attribution: Esca Agnellis artwork by K2040.</string>
+    <string name="license_third_party_summary">Third-party dependencies and incorporated components retain their respective controlling licences and notices.</string>
+    <string name="about_tagline">A friendly food pyramid for everyday life.</string><string name="about_credit">Thanks to my little lamb for the idea</string><string name="about_version_format">Version %1$s</string><string name="about_changelog">Changelog</string>
+    <string-array name="about_changelog_entries"><item>Optional companion with rewards and small interactions</item><item>Name your companion locally and back it up separately</item><item>Create PDF reports directly on your device</item><item>Improvements to languages, themes and usability</item><item>Still local, with no account or tracking</item></string-array>
+    <string name="about_privacy_local">Local, with no account.</string><string name="about_privacy_tracking">No unnecessary tracking.</string><string name="about_license">Licence &amp; use</string><string name="about_support">Support on Ko-fi</string><string name="about_thanks">Thanks for testing and helping shape the app.</string>
+    <string name="license_title">Licence &amp; use</string><string name="license_subtitle">Open-source licences and usage notices</string><string name="license_translation_notice">This page summarizes the licensing. The licence texts included in the source repository control.</string>
+    <string name="license_owner">Esca Agnellis by K2040.</string>
+    <string name="license_distribution">The application code and build scripts are licensed under GNU GPLv3 (GPL-3.0-only) with the K2040 attribution-preservation additional term permitted by GPLv3 §7(b). Copying, modification and redistribution are permitted under those terms.</string>
+    <string name="license_channels">Official APKs signed by K2040 are available only from distribution channels identified by K2040. Other builds or signatures are not official K2040 releases.</string>
+    <string name="license_not_allowed">Notices:</string>
+    <string-array name="license_restrictions"><item>Anyone who conveys GPL-licensed code or binaries built from it must comply with GPL-3.0-only, including the applicable K2040 §7(b) attribution-preservation term and the corresponding-source obligations for the chosen form of distribution.</item><item>Project artwork is licensed under CC-BY-4.0 as documented in ASSET_PROVENANCE.yml, only to the extent licensable rights exist under applicable law; where no such right exists, K2040 asserts no copyright restriction over that material. Attribution: Esca Agnellis artwork by K2040.</item><item>The name, logo and other marks must not be used to imply official approval, origin or support by K2040.</item><item>Modified or repackaged versions must not be presented as the official K2040 app or as using the official K2040 signing identity.</item></string-array>
+    <string name="license_kofi">Ko-fi support is voluntary and provides no unlocks, priority, promises or entitlements.</string>
+    <string name="license_bzfe">The portion guidance follows publicly available BZfE information on the food pyramid and hand measure. Esca Agnellis is not an official BZfE or BLE service.</string>
+    <string name="license_rights">Documentation is licensed under CC-BY-4.0 unless stated otherwise. Third-party dependencies and components retain their respective licences and notices. Trademark and official-build guidance does not restrict rights granted by GPL-3.0-only including the applicable §7(b) term or by CC-BY-4.0. LICENSE, LICENSES/GPL-3.0-Section-7b-K2040.txt, NOTICE.md, THIRD_PARTY_NOTICES.md, TRADEMARKS.md and ASSET_PROVENANCE.yml are controlling.</string>
+    <string name="license_disclaimer">The software is provided without warranty as described by the GPL. No medical, dietary or individual nutrition advice. Mandatory statutory rights remain unaffected.</string>
+    <string name="first_launch_title">Welcome to Esca Agnellis</string><string name="first_launch_version_format">Notice version %1$d</string><string name="action_reject">Decline</string><string name="action_accept">Accept</string>
+    <string name="first_launch_intro">Esca Agnellis is intended only for general recording and guidance.</string>
+    <string-array name="first_launch_paragraphs"><item>The app does not provide medical advice, dietary advice or diet recommendations, or individual nutrition advice.</item><item>It does not diagnose or treat and is not a substitute for qualified professional advice.</item><item>The hand and household measures shown are general approximations and may not suit individual needs.</item><item>Esca Agnellis is not an official BZfE or BLE product and is not affiliated with, endorsed or sponsored by them.</item><item>The full rules are available under “Licence &amp; use”. Consent is stored only on this device.</item></string-array>
+    <string name="backup_title">Backup</string><string name="backup_save">Save</string><string name="backup_save_description">Save progress and settings</string><string name="backup_load">Load</string><string name="backup_load_description">Check and restore a backup</string>
+    <string name="backup_companion_save">Save companion</string><string name="backup_companion_save_description">Save companion Tokens and progress</string><string name="backup_companion_load">Load companion</string><string name="backup_companion_load_description">Check and restore companion backup</string>
+    <string name="backup_restore_title">Load backup</string><string name="backup_restore_subtitle">Existing data will be replaced</string><string name="backup_restore_warning">Loading replaces all existing progress and settings. This action cannot be undone.</string><string name="action_overwrite_load">Replace &amp; load</string><string name="action_cancel">Cancel</string>
+    <string name="snackbar_support">Support on Ko-fi</string><string name="snackbar_bzfe_unavailable">BZfE source unavailable</string><string name="snackbar_backup_unavailable">Backup unavailable</string><string name="snackbar_picker_unavailable">File picker unavailable</string><string name="snackbar_load_unavailable">Loading unavailable</string>
+    <string name="snackbar_backup_saved">Data backed up successfully</string><string name="snackbar_backup_failed">Backup failed</string><string name="snackbar_load_cancelled">Loading cancelled</string><string name="snackbar_backup_invalid">Backup file is invalid or unsupported</string><string name="snackbar_backup_load_failed">Backup could not be loaded</string><string name="snackbar_backup_loaded">Progress and settings loaded</string>
+    <string name="snackbar_backup_cancelled">Backup cancelled</string>
+    <string name="snackbar_companion_backup_saved">Companion data backed up successfully</string><string name="snackbar_companion_backup_failed">Companion backup failed</string><string name="snackbar_companion_backup_cancelled">Companion backup cancelled</string><string name="snackbar_companion_backup_invalid">Companion backup file is invalid or unsupported</string><string name="snackbar_companion_backup_load_failed">Companion backup could not be loaded</string><string name="snackbar_companion_backup_loaded">Companion data loaded</string>
+    <string name="data_error_no_reset">No silent reset was performed. Do not continue using the app until the stored data has been checked.</string><string name="data_error_title">Data state unclear</string><string name="data_error_message">The stored data could not be verified safely. Do not continue using the app until the local data has been checked.</string>
+    <string name="snackbar_green_complete">Great! You completed this green row 🌱</string><string name="snackbar_extra_added">Extra portion added</string><string name="snackbar_extra_removed">Extra portion removed</string>
+
+    <string name="backup_pdf">PDF report</string>
+    <string name="backup_pdf_description">Create a readable report for a date range</string>
+    <string name="pdf_export_title">Export PDF report</string>
+    <string name="pdf_export_subtitle">Choose the date range and report contents</string>
+    <string name="pdf_start_date">Start date</string>
+    <string name="pdf_end_date">End date</string>
+    <string name="pdf_section_detailed">Detailed days</string>
+    <string name="pdf_section_weekly">Weekly summaries</string>
+    <string name="pdf_section_monthly">Monthly summaries</string>
+    <string name="pdf_section_total">Total summary</string>
+    <string name="pdf_action_export">Create PDF</string>
+    <string name="pdf_error_date_order">The start date cannot be after the end date.</string>
+    <string name="pdf_error_section_required">Select at least one report section.</string>
+    <string name="snackbar_pdf_unavailable">PDF export unavailable</string>
+    <string name="snackbar_pdf_cancelled">PDF export cancelled</string>
+    <string name="snackbar_pdf_saved">PDF report saved</string>
+    <string name="snackbar_pdf_failed">PDF report could not be created</string>
+    <string name="report_title">Esca Agnellis · Personal summary</string>
+    <string name="report_period">Period</string>
+    <string name="report_green">Green</string>
+    <string name="report_yellow">Yellow</string>
+    <string name="report_red">Red</string>
+    <string name="report_section_detailed">Days</string>
+    <string name="report_section_weekly">Weeks</string>
+    <string name="report_section_monthly">Months</string>
+    <string name="report_section_total">Total</string>
+    <string name="report_app_version_format">Esca Agnellis version %1$s</string>
+    <string name="report_generated_on_format">Generated on %1$s</string>
+    <string name="report_pyramid_definition">Standard pyramid: 6 drinks, 5 fruit/vegetables, 4 bread/grains/sides, 2 dairy, 1 nuts/seeds, 1 pulses/meat/fish/egg, 2 oils/fats and 1 extras.</string>
+    <string name="report_notice">Personal tracking summary. Not medical, dietary or individual nutrition advice.</string>
+    <string name="report_page_format">Page %1$d</string>
+    <string name="backup_companion">Companion backup</string>
+    <string name="backup_companion_description">Save and restore companion data</string>
+    <string name="backup_companion_file_name_format" translatable="false">esca-agnellis-companion-backup-%1$s.json</string>
+</resources>

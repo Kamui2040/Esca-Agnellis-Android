@@ -2,7 +2,7 @@
 
 Dieses Dokument enthält nur benutzerrelevante Änderungen. Interne Entwicklungs-, Prüf- und Veröffentlichungsabläufe gehören nicht in das öffentliche Änderungsprotokoll.
 
-## 0.16.0 — noch nicht öffentlich veröffentlicht
+## 0.16.0 — 2026-08-14
 
 - Lokale PDF-Berichte für ausgewählte Datumsbereiche mit Tages-, Wochen-, Monats- und Gesamtauswertung.
 - Optionaler, standardmäßig deaktivierter Begleiter mit getrenntem Zustand und getrenntem Sicherungsformat.

@@ -32,7 +32,7 @@ Ein öffentlicher Quell-Tag muss auf den exakt geprüften Quellstand zeigen. Ent
 
 ## Historische Grenze
 
-Version 0.16.0 ist als erste quelloffene Version vorgesehen. Frühere veröffentlichte Binärversionen bis 0.15.0 behalten ihre damaligen proprietären Bedingungen und werden nicht rückwirkend neu lizenziert.
+Version 0.16.0 ist die erste quelloffene Version. Frühere veröffentlichte Binärversionen bis 0.15.0 behalten ihre damaligen proprietären Bedingungen und werden nicht rückwirkend neu lizenziert.
 
 ## Getrennte Freigaben
 

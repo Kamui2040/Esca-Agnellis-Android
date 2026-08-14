@@ -2,11 +2,15 @@
 
 Copyright (c) 2026 K2040.
 
-## Transition status
+## Release status
 
-Esca Agnellis `v0.16.0` is intended to be the first open-source release. The
-preparation work in this private repository is not a release, a publication,
-or an F-Droid submission.
+Esca Agnellis `v0.16.0` is the first open-source release. The public source
+snapshot is published in `Kamui2040/Esca-Agnellis-Android`; official
+developer-signed APKs are distributed through
+`Kamui2040/K2040-Android-Releases`.
+
+This publication does not imply an F-Droid submission or approval of any
+third-party store listing.
 
 Releases through `v0.15.0` remain historical proprietary releases under the
 terms published with those releases. Adding open-source licence texts to the
@@ -70,8 +74,8 @@ or a substitute for advice from a qualified professional.
 
 Developer APKs remain hosted through
 `Kamui2040/K2040-Android-Releases` and are signed with K2040's permanent
-developer certificate. F-Droid is expected to build from the future public
-source repository and sign independently.
+developer certificate. F-Droid may build independently from the public source repository and sign
+with its own signing identity.
 
 Both variants use package `com.k2040.escaagnellis`, but Android treats their
 different certificates as different application identities. They cannot

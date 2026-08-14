@@ -26,25 +26,29 @@ POSIX:
 
 Das Debug-Paket verwendet `com.k2040.escaagnellis.debug` und ist für Entwicklung und lokale Tests bestimmt.
 
-## Unsigned F-Droid-Build
+## Unsigned Release-Build / F-Droid
+
+Ohne `ESCA_SIGNING_PROPERTIES` kann der normale Build-Typ `release` als unsignierter, optimierter Release-Build erstellt werden.
 
 Windows:
 
 ```text
-gradlew.bat clean testFdroidUnitTest lintFdroid assembleFdroid
+gradlew.bat clean testReleaseUnitTest lintRelease assembleRelease
 ```
 
 POSIX:
 
 ```text
-./gradlew clean testFdroidUnitTest lintFdroid assembleFdroid
+./gradlew clean testReleaseUnitTest lintRelease assembleRelease
 ```
 
-Der Build-Typ `fdroid` verwendet Optimierung und Ressourcenverkleinerung, ist nicht debuggable und besitzt absichtlich keine lokale Release-Signatur. F-Droid signiert seinen veröffentlichten Build unabhängig.
+Der Build ist nicht debuggable, verwendet R8/Optimierung und Ressourcenverkleinerung und benötigt keine private Signierkonfiguration. F-Droid verwendet ebenfalls den normalen `release`-Build-Typ, entfernt die reguläre Android-Signierkonfiguration beim eigenen Quell-Build und signiert den veröffentlichten APK anschließend unabhängig.
 
 ## Entwickler-Release-Build
 
-Der Build-Typ `release` verlangt eine lokale Signierkonfiguration über `ESCA_SIGNING_PROPERTIES`. Diese Konfiguration und das Schlüsselmaterial gehören nicht in das Repository und sind für Debug- oder F-Droid-Builds nicht erforderlich.
+Für einen von K2040 signierten Entwickler-Release wird derselbe Build-Typ `release` verwendet. Wenn `ESCA_SIGNING_PROPERTIES` auf eine gültige lokale Signierkonfiguration zeigt, wird diese Konfiguration dem Release-Build zugeordnet. Schlüsselmaterial und Signierkonfiguration gehören nicht in das Repository.
+
+Ein lokaler `release`-Build ohne diese Umgebungsvariable ist absichtlich möglich und bleibt unsigniert. Vor der Veröffentlichung eines Entwickler-Builds muss die vorgesehene Signatur deshalb unabhängig geprüft werden; ein erfolgreicher `assembleRelease`-Task allein ist kein Veröffentlichungsnachweis.
 
 ## Ausgaben
 
@@ -65,16 +69,16 @@ pwsh -NoProfile -File tools/verify-localizations.ps1
 pwsh -NoProfile -File tools/verify-fdroid-hardening.ps1
 ```
 
-Für eine Entwickler-Release-APK kann zusätzlich `tools/verify-release-hardening.ps1` mit dem erwarteten Zertifikat aufgerufen werden.
+`verify-fdroid-hardening.ps1` prüft standardmäßig den unsignierten `release`-Build als F-Droid-Quell-Build-Kandidaten. Für eine Entwickler-Release-APK kann zusätzlich `tools/verify-release-hardening.ps1` mit dem erwarteten Zertifikat aufgerufen werden.
 
 ## Erwartete Produktgrenzen
 
 Ein akzeptierter Build muss insbesondere bestätigen:
 
-- Paket `com.k2040.escaagnellis` für `release` und `fdroid`;
+- Paket `com.k2040.escaagnellis` für `release`;
 - Version `0.16.0`, versionCode `40`;
 - minSdk 26 und targetSdk 35;
-- nicht debuggable für `release` und `fdroid`;
+- nicht debuggable für `release`;
 - keine Internet-Berechtigung;
 - keine eingebetteten privaten Build-, Schlüssel-, Sicherungs- oder Mapping-Dateien.
 

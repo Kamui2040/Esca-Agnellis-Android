@@ -55,7 +55,7 @@ Build requirements belong in `docs/BUILDING.md`; the public release/signing mode
 - POSIX contributors use `./gradlew`; Windows contributors use `gradlew.bat`.
 - Select validation according to affected scope and run `git diff --check`.
 - Runtime-affecting work normally requires applicable unit tests, lint, debug assembly, and focused behavior checks.
-- The `fdroid` build type must remain independent of private release signing and suitable for independent signing.
+- The standard `release` build must remain buildable without private signing material. F-Droid uses that normal release variant and applies its own signing; maintainer signing may be configured locally but must not be required for public source builds.
 - Parse explicit Gradle task outcomes; do not infer an individual task PASS solely from overall build success.
 - Documentation-only changes do not require an Android build when runtime behavior/configuration is unchanged.
 - Distinguish source/static validation, build success, signing, installation, physical-device QA, reproducibility, and release evidence.

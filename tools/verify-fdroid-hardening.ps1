@@ -1,8 +1,8 @@
 param(
     [ValidateNotNullOrEmpty()]
-    [string] $ApkPath = "app/build/outputs/apk/fdroid/Esca-Agnellis-v0.16.0-vc40-fdroid.apk",
+    [string] $ApkPath = "app/build/outputs/apk/release/Esca-Agnellis-v0.16.0-vc40-release.apk",
     [ValidateNotNullOrEmpty()]
-    [string] $MappingPath = "app/build/outputs/mapping/fdroid/mapping.txt",
+    [string] $MappingPath = "app/build/outputs/mapping/release/mapping.txt",
     [ValidateNotNullOrEmpty()]
     [string] $ExpectedPackage = "com.k2040.escaagnellis",
     [ValidateNotNullOrEmpty()]

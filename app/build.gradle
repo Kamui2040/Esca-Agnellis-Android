@@ -1,11 +1,9 @@
-import java.util.Locale
 import java.util.Properties
 
 plugins {
     id 'com.android.application'
 }
 
-def appProject = project
 def escaVersionCode = 40
 def escaVersionName = '0.16.0'
 def signingPropertiesPath = System.getenv('ESCA_SIGNING_PROPERTIES')
@@ -84,15 +82,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable false
         }
-
-        fdroid {
-            initWith release
-            signingConfig null
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            debuggable false
-        }
     }
 
     buildFeatures {
@@ -107,55 +96,6 @@ androidComponents {
         }
     }
 }
-
-gradle.taskGraph.whenReady { taskGraph ->
-    def releaseTaskScheduled = taskGraph.allTasks.any { task ->
-        task.project == appProject &&
-                task.name.toLowerCase(Locale.ROOT).contains('release')
-    }
-
-    if (!releaseTaskScheduled) {
-        return
-    }
-
-    if (signingPropertiesFile == null) {
-        throw new GradleException(
-                'Release signing is not configured. Set ESCA_SIGNING_PROPERTIES to the local keystore.properties file.'
-        )
-    }
-
-    if (!signingPropertiesFile.isFile()) {
-        throw new GradleException(
-                "ESCA_SIGNING_PROPERTIES does not point to a readable file: ${signingPropertiesFile}"
-        )
-    }
-
-    if (signingPropertiesLoadFailure != null) {
-        throw new GradleException(
-                "Release signing properties could not be read: ${signingPropertiesFile}",
-                signingPropertiesLoadFailure
-        )
-    }
-
-    if (!missingSigningKeys.isEmpty()) {
-        throw new GradleException(
-                "Release signing properties are incomplete. Missing: ${missingSigningKeys.join(', ')}"
-        )
-    }
-
-    if (configuredStoreFile == null || !configuredStoreFile.isFile()) {
-        throw new GradleException(
-                "Release keystore does not exist: ${configuredStoreFile}"
-        )
-    }
-
-    if (android.signingConfigs.findByName('release') == null) {
-        throw new GradleException(
-                'Release signing configuration was not created.'
-        )
-    }
-}
-
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'

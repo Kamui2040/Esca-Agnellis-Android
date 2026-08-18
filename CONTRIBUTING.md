@@ -18,18 +18,18 @@ Beiträge zu Esca Agnellis sind willkommen, wenn sie die lokale, zugängliche un
 
 Verwende JDK 17, Android SDK 35 und den enthaltenen Gradle Wrapper. Siehe [docs/BUILDING.md](docs/BUILDING.md).
 
-Vor einem Pull Request sollten mindestens folgende lokalen Aufgaben erfolgreich sein:
+Vor einem Pull Request sollten für runtime-relevante Änderungen die passenden Aufgaben erfolgreich sein, typischerweise:
 
 ```text
 testDebugUnitTest
-testFdroidUnitTest
+testReleaseUnitTest
 lintDebug
-lintFdroid
+lintRelease
 assembleDebug
-assembleFdroid
+assembleRelease
 ```
 
-Führe außerdem die Repository-Prüfungen für Lokalisierung, F-Droid-Härtung, Lizenzen und Kunstwerk-Herkunft aus, soweit sie vom Änderungstyp betroffen sind.
+Der normale `release`-Build muss ohne private Signierkonfiguration baubar bleiben und ist dann unsigned; diese Build-Grenze wird auch für F-Droid verwendet. Führe außerdem die Repository-Prüfungen für Lokalisierung, F-Droid-Härtung, Lizenzen und Kunstwerk-Herkunft aus, soweit sie vom Änderungstyp betroffen sind. Reine Dokumentationsänderungen benötigen keinen Android-Build, wenn Laufzeit, Ressourcen und Build-Konfiguration unverändert bleiben.
 
 ## Übersetzungen
 
@@ -57,4 +57,4 @@ Mit einem Beitrag wird zugestimmt, dass er unter der für den jeweiligen Bereich
 
 ## Pull Requests
 
-Ein Pull Request sollte den Zweck, die betroffenen Bereiche, die lokale Validierung und noch offene manuelle Prüfungen beschreiben. Große unabhängige Änderungen sollten getrennt bleiben. Änderungen dürfen keine automatische Deinstallation, Datenlöschung oder Veröffentlichung auslösen.
+Ein Pull Request sollte Zweck, betroffene Bereiche, lokale Validierung und noch offene manuelle Prüfungen beschreiben. Große unabhängige Änderungen sollten getrennt bleiben. Änderungen dürfen keine automatische Deinstallation, Datenlöschung oder Veröffentlichung auslösen.

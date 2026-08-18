@@ -31,12 +31,14 @@ The public source is designed for independent local builds. It requires JDK 17, 
 ```text
 Windows:
 gradlew.bat testDebugUnitTest lintDebug assembleDebug
-gradlew.bat testFdroidUnitTest lintFdroid assembleFdroid
+gradlew.bat testReleaseUnitTest lintRelease assembleRelease
 
 POSIX:
 ./gradlew testDebugUnitTest lintDebug assembleDebug
-./gradlew testFdroidUnitTest lintFdroid assembleFdroid
+./gradlew testReleaseUnitTest lintRelease assembleRelease
 ```
+
+The normal `release` build remains buildable without private signing configuration and is unsigned in that case. F-Droid uses this public release-build boundary and independently signs its distributed package.
 
 Further information:
 

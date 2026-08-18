@@ -30,12 +30,14 @@ Maintainer-private Dateien, Signierschlüssel, persönliche Testdaten und extern
 ## Empfohlene Prüfung
 
 ```text
-gradlew testDebugUnitTest testFdroidUnitTest
-gradlew lintDebug lintFdroid
-gradlew assembleDebug assembleFdroid
+gradlew testDebugUnitTest testReleaseUnitTest
+gradlew lintDebug lintRelease
+gradlew assembleDebug assembleRelease
 ```
 
-Danach sollten Paket, Version, Berechtigungen, Debuggable-Status, ZIP-Struktur und eingebettete Dateien unabhängig geprüft werden. Der F-Droid-Build ist vor der Distributionssignierung unsigned.
+Der normale `release`-Build kann ohne `ESCA_SIGNING_PROPERTIES` als unsignierter, optimierter Quell-Build erstellt werden. Das ist auch die für F-Droid relevante Build-Grenze; F-Droid baut aus öffentlicher Quelle und signiert die veröffentlichte APK anschließend unabhängig.
+
+Danach sollten Paket, Version, Berechtigungen, Debuggable-Status, ZIP-Struktur und eingebettete Dateien unabhängig geprüft werden. Für eine K2040-Entwicklerveröffentlichung ist zusätzlich die erwartete Signatur separat zu verifizieren.
 
 ## Warum noch keine bitgenaue Zusage besteht
 

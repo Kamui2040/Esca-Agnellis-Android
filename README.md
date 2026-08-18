@@ -31,12 +31,14 @@ Die öffentliche Quelle ist für unabhängige lokale Builds ausgelegt. Benötigt
 ```text
 Windows:
 gradlew.bat testDebugUnitTest lintDebug assembleDebug
-gradlew.bat testFdroidUnitTest lintFdroid assembleFdroid
+gradlew.bat testReleaseUnitTest lintRelease assembleRelease
 
 POSIX:
 ./gradlew testDebugUnitTest lintDebug assembleDebug
-./gradlew testFdroidUnitTest lintFdroid assembleFdroid
+./gradlew testReleaseUnitTest lintRelease assembleRelease
 ```
+
+Der normale `release`-Build bleibt ohne private Signierkonfiguration baubar und ist dann unsigned. F-Droid verwendet diese öffentliche Release-Build-Grenze und signiert sein veröffentlichtes Paket unabhängig.
 
 Weitere Informationen:
 

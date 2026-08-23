@@ -5,7 +5,7 @@
 Esca Agnellis kann über zwei getrennte Signaturketten verteilt werden:
 
 1. **K2040-Entwickler-APK**  
-   Von K2040 ausdrücklich als offiziell bezeichnet und mit dem dauerhaften K2040-Entwicklerzertifikat signiert. APKs und Prüfsummen werden über `Kamui2040/K2040-Android-Releases` bereitgestellt.
+   Von K2040 ausdrücklich als offiziell bezeichnet und mit dem dauerhaften K2040-Entwicklerzertifikat signiert. Künftige K2040-APKs, Prüfsummen und Release-Hinweise werden über die GitHub Releases dieses Quellrepositories bereitgestellt.
 
 2. **F-Droid-APK**  
    Von F-Droid unabhängig aus der veröffentlichten Quelle gebaut und mit der F-Droid-Signatur versehen.
@@ -30,10 +30,12 @@ Keine Projekt-Automatisierung darf die App deinstallieren, App-Daten löschen od
 
 Ein öffentlicher Quell-Tag muss auf den exakt geprüften Quellstand zeigen. Entwickler-APK, Prüfsumme, Quell-Tag und F-Droid-Metadaten müssen dieselbe Version und denselben versionCode beschreiben, auch wenn ihre APK-Signaturen und dadurch ihre Dateihashes verschieden sind.
 
-## Historische Grenze
+## Historische Veröffentlichungen
 
-Version 0.16.0 ist die erste quelloffene Version. Frühere veröffentlichte Binärversionen bis 0.15.0 behalten ihre damaligen proprietären Bedingungen und werden nicht rückwirkend neu lizenziert.
+Version 0.16.0 ist die erste quelloffene Version. Das bereits veröffentlichte K2040-Release 0.16.0 und seine Prüfsummen bleiben im Repository `Kamui2040/K2040-Android-Releases`, damit bestehende öffentliche Links weiterhin funktionieren. Diese historischen Dateien werden nicht nur wegen des neuen Veröffentlichungsorts verschoben oder gelöscht.
+
+Frühere veröffentlichte Binärversionen bis 0.15.0 behalten ihre damaligen proprietären Bedingungen und werden nicht rückwirkend neu lizenziert.
 
 ## Getrennte Freigaben
 
-Quell-Repository, Quell-Tag, Entwickler-APK, F-Droid-Einreichung, weitere Stores, Webseiten und Ankündigungen sind getrennte Vorgänge. Die technische Vorbereitung eines Vorgangs autorisiert keinen anderen.
+Quell-Tag, K2040-GitHub-Release, Entwickler-APK, F-Droid-Einreichung, weitere Stores, Webseiten und Ankündigungen sind getrennte Vorgänge. Die technische Vorbereitung eines Vorgangs autorisiert keinen anderen.

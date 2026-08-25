@@ -13,11 +13,11 @@ Esca Agnellis is a local-first Android food-pyramid tracking app. Keep repositor
 
 Build requirements belong in `docs/BUILDING.md`; the public release/signing model belongs in `docs/RELEASES.md`; user-visible release history belongs in `CHANGELOG.md`.
 
-## Future-public hygiene
+## Public-repository hygiene
 
-- Treat every tracked file as future-public even while repository visibility is private.
+- Treat every tracked file as public.
 - Never commit credentials, signing material, personal data, raw device identifiers, machine-specific paths, private storage links/IDs, maintainer-only workflow, internal assistant/tool policy, private QA archives, or sensitive diagnostics.
-- Public/future-public source must remain independently buildable, testable, auditable, translatable, and understandable without private infrastructure.
+- Public source must remain independently buildable, testable, auditable, translatable, and understandable without private infrastructure.
 - Use synthetic or deliberately sanitized fixtures and examples.
 - Preserve required licences, notices, attribution, and exact asset provenance.
 
@@ -52,7 +52,8 @@ Build requirements belong in `docs/BUILDING.md`; the public release/signing mode
 
 - Use JDK 17 and the Android SDK/Gradle versions declared by the repository.
 - Use the repository Gradle wrapper rather than a globally installed Gradle.
-- POSIX contributors use `./gradlew`; Windows contributors use `gradlew.bat`.
+- POSIX contributors use `./gradlew`; Windows contributors may use `gradlew.bat`.
+- Repository verification tools used by the maintainer workflow must run with Python 3 on Linux and must not require PowerShell.
 - Select validation according to affected scope and run `git diff --check`.
 - Runtime-affecting work normally requires applicable unit tests, lint, debug assembly, and focused behavior checks.
 - The standard `release` build must remain buildable without private signing material. F-Droid uses that normal release variant and applies its own signing; maintainer signing may be configured locally but must not be required for public source builds.
@@ -75,4 +76,4 @@ Build requirements belong in `docs/BUILDING.md`; the public release/signing mode
 - Preserve unrelated work and avoid broad formatting/generated-file churn.
 - Do not commit APK/AAB files, build outputs, R8 mapping/retrace data, local backups, private test data, or signing material.
 - Review complete changed-file scope, encoding, licences/provenance, and applicable tests before merge.
-- Repository visibility changes, first public-source publication, production signing, public releases, store/F-Droid submissions, Pages/deployments, announcements, and other official publication actions are maintainer-controlled.
+- Repository visibility changes, production signing, public releases, store/F-Droid submissions, Pages/deployments, announcements, and other official publication actions are maintainer-controlled.

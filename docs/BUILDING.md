@@ -6,23 +6,20 @@
 - Android SDK Platform 35
 - Android SDK Build-Tools 35
 - Git
+- Python 3
 - der im Repository enthaltene Gradle Wrapper
 
 Die benötigten Maven-Abhängigkeiten werden aus den in `settings.gradle` deklarierten öffentlichen Repositories bezogen. Der Build benötigt keine maintainer-private Ablage, keine Signierschlüssel und keinen Cloud-Dienst.
 
 ## Debug-Build
 
-Windows:
-
-```text
-gradlew.bat clean testDebugUnitTest lintDebug assembleDebug
-```
-
-POSIX:
+POSIX / Linux:
 
 ```text
 ./gradlew clean testDebugUnitTest lintDebug assembleDebug
 ```
+
+Windows-Beitragende können entsprechend `gradlew.bat` verwenden.
 
 Das Debug-Paket verwendet `com.k2040.escaagnellis.debug` und ist für Entwicklung und lokale Tests bestimmt.
 
@@ -30,17 +27,13 @@ Das Debug-Paket verwendet `com.k2040.escaagnellis.debug` und ist für Entwicklun
 
 Ohne `ESCA_SIGNING_PROPERTIES` kann der normale Build-Typ `release` als unsignierter, optimierter Release-Build erstellt werden.
 
-Windows:
-
-```text
-gradlew.bat clean testReleaseUnitTest lintRelease assembleRelease
-```
-
-POSIX:
+POSIX / Linux:
 
 ```text
 ./gradlew clean testReleaseUnitTest lintRelease assembleRelease
 ```
+
+Windows-Beitragende können entsprechend `gradlew.bat` verwenden.
 
 Der Build ist nicht debuggable, verwendet R8/Optimierung und Ressourcenverkleinerung und benötigt keine private Signierkonfiguration. F-Droid verwendet ebenfalls den normalen `release`-Build-Typ, entfernt die reguläre Android-Signierkonfiguration beim eigenen Quell-Build und signiert den veröffentlichten APK anschließend unabhängig.
 
@@ -62,14 +55,16 @@ Build-, APK-, Mapping-, Lint- und Testausgaben sind generiert und werden nicht v
 
 ## Repository-Prüfungen
 
-Windows PowerShell:
+Der Linux-Maintainer-Workflow verwendet Python 3:
 
 ```text
-pwsh -NoProfile -File tools/verify-localizations.ps1
-pwsh -NoProfile -File tools/verify-fdroid-hardening.ps1
+python3 tools/verify-localizations.py
+python3 tools/verify-fdroid-hardening.py
 ```
 
-`verify-fdroid-hardening.ps1` prüft standardmäßig den unsignierten `release`-Build als F-Droid-Quell-Build-Kandidaten. Für eine Entwickler-Release-APK kann zusätzlich `tools/verify-release-hardening.ps1` mit dem erwarteten Zertifikat aufgerufen werden.
+`verify-fdroid-hardening.py` prüft standardmäßig den unsignierten `release`-Build als F-Droid-Quell-Build-Kandidaten. Für eine Entwickler-Release-APK kann zusätzlich `tools/verify-release-hardening.py` mit `--expected-cert-sha256` und dem erwarteten Zertifikat aufgerufen werden.
+
+Die älteren PowerShell-Prüfungen dürfen für Windows-Beitragende als Kompatibilitätsroute bestehen bleiben, sind aber keine Voraussetzung für den Maintainer-Build oder die öffentliche Quellprüfung.
 
 ## Erwartete Produktgrenzen
 
@@ -84,4 +79,4 @@ Ein akzeptierter Build muss insbesondere bestätigen:
 
 ## GitHub Actions
 
-Der lokale Build ist die maßgebliche Route für diese Anleitung. Die initiale öffentliche Quelle enthält keinen automatisch ausgelösten Workflow und setzt keinen Cloud-CI-Dienst voraus.
+Der lokale Build ist die maßgebliche Route für diese Anleitung. Das Repository enthält keinen automatisch ausgelösten Workflow und setzt keinen Cloud-CI-Dienst voraus.

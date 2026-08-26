@@ -8,12 +8,12 @@ Features:
 • portion guidance using hand and household measures
 • local backup and restore through Android's document picker
 • local PDF reports
-• German, English, Spanish, French, and European Portuguese
+• German, English, Spanish, French, European Portuguese, Turkish, Arabic, Polish, Russian, Ukrainian, and Romanian
 • light, dark, and cozy pastel themes
 • an optional local companion, disabled by default and backed up separately
 
 The companion uses only locally earned in-app tokens. There are no purchases, ads, or paid unlocks.
 
-Portion information is general orientation only. Esca Agnellis is not medical, dietary, or individualized nutritional advice and is not an official BZfE or BLE product.
+Portion information is general orientation only. The standard pyramid and portion guidance use publicly available BZfE food-pyramid information as their data basis, current as of 25 September 2024. Esca Agnellis is an independent digital implementation, uses no BZfE/BLE artwork, and is not affiliated with, endorsed, supported, or sponsored by BZfE or BLE. The app is not medical, dietary, or individualized nutritional advice.
 
 The application code and build scripts are free software under GPL-3.0-only.

@@ -45,7 +45,7 @@
     <string name="portions_extras_title">Extras · 1</string>
     <string-array name="portions_extras_examples"><item>Snacks</item></string-array>
     <string-array name="portions_extras_measures"><item>1 Handvoll oder 1 Glas</item></string-array>
-    <string name="portions_reference_hint">Hand- und Haushaltsmaße sind eine freundliche, unverbindliche Alltagshilfe.</string>
+    <string name="portions_reference_hint">Hand- und Haushaltsmaße geben eine einfache, unverbindliche Orientierung für den Alltag.</string>
 
     <string name="settings_title">Einstellungen</string>
     <string name="settings_language">Sprache</string>
@@ -57,13 +57,19 @@
     <string name="language_spanish">Español</string>
     <string name="language_french">Français</string>
     <string name="language_portuguese_portugal">Português (Portugal)</string>
+    <string name="language_turkish" translatable="false">Türkçe</string>
+    <string name="language_arabic" translatable="false">العربية</string>
+    <string name="language_polish" translatable="false">Polski</string>
+    <string name="language_russian" translatable="false">Русский</string>
+    <string name="language_ukrainian" translatable="false">Українська</string>
+    <string name="language_romanian" translatable="false">Română</string>
     <string name="settings_color_scheme">Thema</string>
     <string name="theme_system">Systemstandard</string>
     <string name="theme_light">Hell</string>
     <string name="theme_dark">Dunkel</string>
     <string name="settings_style">Daten</string>
     <string name="style_standard">Standard</string>
-    <string name="style_pastel_cozy">Pastell Gemütlich</string>
+    <string name="style_pastel_cozy">Gemütliches Pastell</string>
     <string name="settings_companion_section">Begleiter</string>
     <string name="settings_companion">Begleiter</string>
     <string name="settings_companion_name">Name</string>
@@ -80,7 +86,7 @@
     <string name="companion_interaction_feed_treat">Leckerli</string>
     <string name="companion_interaction_feed_treat_description">Eine kleine Belohnung teilen.</string>
     <string name="companion_interaction_play_description">Zusammen kurz spielen.</string>
-    <string name="companion_interaction_cuddle_description">Ein warmer Kuschelmoment.</string>
+    <string name="companion_interaction_cuddle_description">Kurz zusammen kuscheln.</string>
     <string name="companion_interaction_play">Spielen</string>
     <string name="companion_interaction_cuddle">Streicheln</string>
     <string name="companion_interaction_cost_unit">Tokens</string>
@@ -99,12 +105,12 @@
     <string name="snackbar_companion_name_invalid">Name ist ungültig oder zu lang</string>
     <string name="snackbar_companion_name_unavailable">Name derzeit nicht verfügbar</string>
     <string name="snackbar_companion_interaction_success">Das tut gut.</string>
-    <string name="snackbar_companion_interaction_insufficient">Dafür sind gerade nicht genug freie Tokens verfügbar.</string>
+    <string name="snackbar_companion_interaction_insufficient">Dafür hast du gerade nicht genug Tokens.</string>
     <string name="snackbar_companion_interaction_unavailable">Diese Interaktion ist gerade nicht verfügbar.</string>
     <string name="settings_lookup">Nachschlagen</string>
     <string name="settings_portion_help">Portionshilfe</string>
     <string name="settings_portion_help_description">Hand- und Haushaltsmaße als Orientierung</string>
-    <string name="settings_bzfe_source">Offizielle BZfE-Quelle</string>
+    <string name="settings_bzfe_source">Quelle: BZfE</string>
     <string name="settings_bzfe_source_description">Ernährungspyramide &amp; Handmaß</string>
     <string name="settings_backup">Datensicherung</string>
     <string name="settings_backup_description">Fortschritte und Einstellungen</string>
@@ -117,8 +123,8 @@
     <string name="portion_help_subtitle">Allgemeine Orientierung</string>
     <string name="action_understood">Verstanden</string>
     <string name="portion_help_intro">Die Portionshilfe ist eine allgemeine Orientierung für den Alltag.</string>
-    <string-array name="portion_help_bullets"><item>Individuelle Bedürfnisse können abweichen.</item><item>Hand- und Haushaltsmaße sind die wichtigste Orientierung.</item><item>Die Angaben sind bewusst allgemein und nicht als feste Vorgabe gemeint.</item><item>Portionen können je nach Lebensmittel und Zubereitung unterschiedlich aussehen.</item><item>Die App ist keine medizinische, diätische oder individuelle Ernährungsberatung.</item><item>Esca Agnellis ist kein offizielles Angebot von BZfE oder BLE.</item></string-array>
-    <string name="portion_help_source_note">Die verlinkte BZfE-Seite dient als öffentlich zugängliche Quelle für die fachliche Orientierung.</string>
+    <string-array name="portion_help_bullets"><item>Individuelle Bedürfnisse können abweichen.</item><item>Hand- und Haushaltsmaße geben praktische Näherungswerte.</item><item>Die Angaben sind bewusst allgemein und nicht als feste Vorgabe gemeint.</item><item>Portionen können je nach Lebensmittel und Zubereitung unterschiedlich aussehen.</item><item>Die App ist keine medizinische, diätische oder individuelle Ernährungsberatung.</item><item>Esca Agnellis ist kein offizielles Angebot von BZfE oder BLE.</item></string-array>
+    <string name="portion_help_source_note">Datenbasis: Ernährungspyramide des Bundeszentrums für Ernährung (BZfE), Stand 25.09.2024. Esca Agnellis ist eine unabhängige digitale Zusammenfassung und Umsetzung. Es werden keine BZfE-/BLE-Grafiken verwendet; das Projekt ist weder mit BZfE/BLE verbunden noch von ihnen unterstützt oder gesponsert.</string>
 
     <string name="about_sources">Quellen</string>
     <string name="about_contributors">Danke / Beiträge</string>
@@ -152,7 +158,7 @@
     <string name="license_not_allowed">Hinweise:</string>
     <string-array name="license_restrictions"><item>Wer GPL-lizenzierten Code oder daraus erstellte Binärdateien weitergibt, muss GPL-3.0-only einschließlich der anwendbaren K2040-Attributionserhaltungsklausel nach §7(b) sowie der jeweiligen Quellcodepflichten für die gewählte Vertriebsform einhalten.</item><item>Projektgrafiken stehen gemäß ASSET_PROVENANCE.yml unter CC-BY-4.0, soweit nach anwendbarem Recht lizenzierbare Rechte bestehen; besteht kein solches Recht, macht K2040 für dieses Material keine urheberrechtliche Beschränkung geltend. Namensnennung: Esca Agnellis artwork by K2040.</item><item>Name, Logo und sonstige Kennzeichen dürfen nicht so verwendet werden, dass eine offizielle Freigabe, Herkunft oder Unterstützung durch K2040 vorgetäuscht wird.</item><item>Veränderte oder neu verpackte Fassungen dürfen nicht als offizielle K2040-App oder mit der offiziellen K2040-Signatur dargestellt werden.</item></string-array>
     <string name="license_kofi">Ko-fi ist freiwillige Unterstützung; daraus entstehen keine Freischaltungen, Priorität, Zusagen oder Ansprüche.</string>
-    <string name="license_bzfe">Die Portionsorientierung folgt öffentlich zugänglichen BZfE-Hinweisen zu Ernährungspyramide und Handmaß. Esca Agnellis ist kein offizielles Angebot von BZfE oder BLE.</string>
+    <string name="license_bzfe">Datenbasis der Standardpyramide und Portionshinweise: öffentlich verfügbare Informationen des Bundeszentrums für Ernährung (BZfE) zur Ernährungspyramide, Stand 25.09.2024. Esca Agnellis ist eine unabhängige Umsetzung und weder mit BZfE/BLE verbunden noch von ihnen unterstützt oder gesponsert.</string>
     <string name="license_rights">Dokumentation steht, sofern nicht anders angegeben, unter CC-BY-4.0. Drittanbieter-Abhängigkeiten und -Komponenten behalten ihre jeweiligen Lizenzen und Hinweise. Marken- und Hinweise zu offiziellen Builds beschränken die durch GPL-3.0-only einschließlich der anwendbaren §7(b)-Klausel oder CC-BY-4.0 gewährten Rechte nicht. LICENSE, LICENSES/GPL-3.0-Section-7b-K2040.txt, NOTICE.md, THIRD_PARTY_NOTICES.md, TRADEMARKS.md und ASSET_PROVENANCE.yml sind maßgeblich.</string>
     <string name="license_disclaimer">Die Software wird ohne Gewährleistung nach Maßgabe der GPL bereitgestellt. Keine medizinische, diätische oder individuelle Ernährungsberatung. Zwingende gesetzliche Rechte bleiben unberührt.</string>
 

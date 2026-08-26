@@ -1261,10 +1261,10 @@ public class MainActivity extends Activity {
                 text.setFakeBoldText(true);
                 text.setTextSize(dp(13));
                 text.setColor(primaryText);
-                c.drawText(s(R.string.portions_drinks_title), waterSection.left + dp(14), waterSection.top + dp(20), text);
+                c.drawText(s(R.string.portions_drinks_title), waterSection.left + dp(14), waterSection.top + dp(19), text);
                 text.setFakeBoldText(false);
                 drawStatBox(c,
-                        new RectF(waterSection.left + dp(12), waterSection.top + dp(21), waterSection.right - dp(12), waterSection.top + dp(51)),
+                        new RectF(waterSection.left + dp(12), waterSection.top + dp(27), waterSection.right - dp(12), waterSection.top + dp(57)),
                         CAT_WATER,
                         ps.usedByGroup[GROUP_DRINKS],
                         ps.totalByGroup[GROUP_DRINKS],
@@ -1283,7 +1283,7 @@ public class MainActivity extends Activity {
         }
 
         private float waterSectionHeight(int period) {
-            return 54f + (isExpanded(period * 10 + CAT_WATER) ? 34f : 0f);
+            return 60f + (isExpanded(period * 10 + CAT_WATER) ? 34f : 0f);
         }
 
         private float statPeriodHeight(int period) {
@@ -1339,11 +1339,8 @@ public class MainActivity extends Activity {
         }
 
         private int visualExtraUsed(PeriodStats ps, int cat, int period) {
-            if (cat != CAT_GREEN && cat != CAT_WATER) return ps.usedExtraByCat[cat];
-            int drinkExtras = periodDrinkExtras(period);
-            return cat == CAT_WATER
-                    ? drinkExtras
-                    : Math.max(0, ps.usedExtraByCat[CAT_GREEN] - drinkExtras);
+            if (cat == CAT_WATER) return periodDrinkExtras(period);
+            return ps.usedExtraByCat[cat];
         }
 
         private int periodDrinkExtras(int period) {
@@ -3311,7 +3308,13 @@ public class MainActivity extends Activity {
                         s(R.string.language_english),
                         s(R.string.language_spanish),
                         s(R.string.language_french),
-                        s(R.string.language_portuguese_portugal)
+                        s(R.string.language_portuguese_portugal),
+                        s(R.string.language_turkish),
+                        s(R.string.language_arabic),
+                        s(R.string.language_polish),
+                        s(R.string.language_russian),
+                        s(R.string.language_ukrainian),
+                        s(R.string.language_romanian)
                 };
             }
             return new String[] {
@@ -3426,7 +3429,10 @@ public class MainActivity extends Activity {
             int[] labels = {
                     R.string.language_system, R.string.language_german, R.string.language_english,
                     R.string.language_spanish, R.string.language_french,
-                    R.string.language_portuguese_portugal
+                    R.string.language_portuguese_portugal, R.string.language_turkish,
+                    R.string.language_arabic, R.string.language_polish,
+                    R.string.language_russian, R.string.language_ukrainian,
+                    R.string.language_romanian
             };
             return s(labels[AppLanguage.indexOf(uiPrefs.getString(
                     AppLanguage.PREFERENCE_KEY, AppLanguage.SYSTEM))]);
@@ -5121,6 +5127,7 @@ public class MainActivity extends Activity {
                             R.string.report_generated_on_format,
                             PyramidReportFormat.day(LocalDate.now())),
                     s(R.string.report_pyramid_definition),
+                    s(R.string.license_bzfe),
                     s(R.string.report_notice),
                     s(R.string.report_page_format));
         }
@@ -5961,10 +5968,11 @@ public class MainActivity extends Activity {
                 int subtype = PyramidScheme.subtypeForPosition(position);
                 int category = CATEGORY_BY_SUBTYPE[subtype];
                 int group = GROUP_BY_POSITION[position];
-                ps.totalByCat[category]++;
+                boolean drinks = subtype == PyramidScheme.SUBTYPE_DRINKS;
+                if (!drinks) ps.totalByCat[category]++;
                 ps.totalByGroup[group]++;
                 if (countUsed && d.ticks[position]) {
-                    ps.usedByCat[category]++;
+                    if (!drinks) ps.usedByCat[category]++;
                     ps.usedByGroup[group]++;
                 }
             }
@@ -5973,8 +5981,11 @@ public class MainActivity extends Activity {
                     int extra = d.subtypeExtras[subtype];
                     int category = CATEGORY_BY_SUBTYPE[subtype];
                     int group = GROUP_BY_SUBTYPE[subtype];
-                    ps.usedByCat[category] += extra;
-                    ps.usedExtraByCat[category] += extra;
+                    boolean drinks = subtype == PyramidScheme.SUBTYPE_DRINKS;
+                    if (!drinks) {
+                        ps.usedByCat[category] += extra;
+                        ps.usedExtraByCat[category] += extra;
+                    }
                     ps.usedByGroup[group] += extra;
                 }
             }

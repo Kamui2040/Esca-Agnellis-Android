@@ -38,7 +38,7 @@ public class PyramidReportModelTest {
     }
 
     @Test
-    public void dailyCounts_includeDefaultsAndExtrasInTheirSubtypeColour() {
+    public void dailyCounts_includeFoodDefaultsAndExtrasButExcludeDrinks() {
         boolean[] ticks = new boolean[PyramidScheme.TILE_COUNT];
         int[] selectedPositions = new int[] { 0, 1, 3, 4, 6, 7, 10, 11, 16 };
         for (int position : selectedPositions) ticks[position] = true;
@@ -54,9 +54,26 @@ public class PyramidReportModelTest {
                 EnumSet.of(PyramidReportModel.Section.DETAILED_DAYS));
 
         PyramidReportModel.Counts counts = report.detailedDays.get(0).counts;
-        assertEquals(38L, counts.green);
+        assertEquals(27L, counts.green);
         assertEquals(22L, counts.yellow);
         assertEquals(3L, counts.red);
+    }
+
+    @Test
+    public void drinksAlone_doNotCountAsGreen() {
+        LocalDate date = LocalDate.of(2026, 6, 18);
+        int[] extras = new int[PyramidScheme.SUBTYPE_COUNT];
+        extras[PyramidScheme.SUBTYPE_DRINKS] = 4;
+        Map<LocalDate, PyramidScheme.DayState> days = new LinkedHashMap<>();
+        days.put(date, day(new int[] { 16, 17, 18 }, extras));
+
+        PyramidReportModel.Report report = PyramidReportModel.build(
+                days,
+                date,
+                date,
+                EnumSet.of(PyramidReportModel.Section.DETAILED_DAYS));
+
+        assertCounts(report.detailedDays.get(0).counts, 0L, 0L, 0L);
     }
 
     @Test
@@ -75,7 +92,7 @@ public class PyramidReportModelTest {
 
         assertEquals(3, report.detailedDays.size());
         assertCounts(report.detailedDays.get(0).counts, 0L, 0L, 0L);
-        assertCounts(report.detailedDays.get(1).counts, 1L, 0L, 0L);
+        assertCounts(report.detailedDays.get(1).counts, 0L, 0L, 0L);
         assertCounts(report.detailedDays.get(2).counts, 0L, 0L, 0L);
         assertEquals(start, report.detailedDays.get(0).startDate);
         assertEquals(end, report.detailedDays.get(2).endDate);
@@ -101,12 +118,12 @@ public class PyramidReportModelTest {
         PyramidReportModel.PeriodRow first = report.weeklySummaries.get(0);
         assertEquals(LocalDate.of(2026, 6, 10), first.startDate);
         assertEquals(LocalDate.of(2026, 6, 14), first.endDate);
-        assertCounts(first.counts, 1L, 0L, 1L);
+        assertCounts(first.counts, 0L, 0L, 1L);
 
         PyramidReportModel.PeriodRow second = report.weeklySummaries.get(1);
         assertEquals(LocalDate.of(2026, 6, 15), second.startDate);
         assertEquals(LocalDate.of(2026, 6, 16), second.endDate);
-        assertCounts(second.counts, 2L, 1L, 0L);
+        assertCounts(second.counts, 0L, 1L, 0L);
     }
 
     @Test
@@ -133,7 +150,7 @@ public class PyramidReportModelTest {
         PyramidReportModel.PeriodRow june = report.monthlySummaries.get(1);
         assertEquals(LocalDate.of(2026, 6, 1), june.startDate);
         assertEquals(LocalDate.of(2026, 6, 2), june.endDate);
-        assertCounts(june.counts, 1L, 1L, 0L);
+        assertCounts(june.counts, 0L, 1L, 0L);
     }
 
     @Test
@@ -159,7 +176,7 @@ public class PyramidReportModelTest {
         assertNotNull(report.totalSummary);
         assertEquals(start, report.totalSummary.startDate);
         assertEquals(end, report.totalSummary.endDate);
-        assertCounts(report.totalSummary.counts, 4L, 5L, 5L);
+        assertCounts(report.totalSummary.counts, 2L, 5L, 5L);
 
         long green = 0L;
         long yellow = 0L;

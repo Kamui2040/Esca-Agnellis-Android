@@ -15,7 +15,13 @@ final class AppLanguage {
             "en",
             "es",
             "fr",
-            "pt-PT"
+            "pt-PT",
+            "tr",
+            "ar",
+            "pl",
+            "ru",
+            "uk",
+            "ro"
     };
 
     private AppLanguage() {
@@ -75,7 +81,13 @@ final class AppLanguage {
         if ("de".equals(language)
                 || "en".equals(language)
                 || "es".equals(language)
-                || "fr".equals(language)) {
+                || "fr".equals(language)
+                || "tr".equals(language)
+                || "ar".equals(language)
+                || "pl".equals(language)
+                || "ru".equals(language)
+                || "uk".equals(language)
+                || "ro".equals(language)) {
             return true;
         }
         return "pt".equals(language) && "PT".equalsIgnoreCase(locale.getCountry());

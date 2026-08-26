@@ -1,0 +1,19 @@
+<resources>
+    <string name="welcome_action_exit">Ieșire</string>
+    <string name="welcome_action_continue">Continuă</string>
+    <string name="welcome_action_back">Înapoi</string>
+    <string name="welcome_action_close">Închide</string>
+    <string name="welcome_avatar_description">Avatarul personal K2040</string>
+    <string name="welcome_app_summary">O piramidă alimentară prietenoasă pentru fiecare zi — pentru înregistrare și orientare generală, nu pentru sfaturi medicale, dietetice sau nutriționale individuale.</string>
+    <string name="welcome_trust_summary">Local · Offline · Fără cont · Fără reclame · Fără urmărire</string>
+    <string name="welcome_trust_local">Local · Offline · Fără cont</string>
+    <string name="welcome_trust_tracking">Fără reclame · Fără urmărire</string>
+    <string name="welcome_licence_summary">Cod: GNU GPLv3 cu termenul de păstrare a atribuirii K2040 conform GPLv3 §7(b). Grafica proiectului: CC BY 4.0 cu atribuire separată. Dependențele terților își păstrează licențele și notificările proprii.</string>
+    <string name="welcome_credits_title">Mulțumiri / Contribuitori</string>
+    <string name="welcome_support_description">Ko-fi este o modalitate opțională de a susține dezvoltarea. Nu deblochează funcții și nu schimbă modul în care funcționează aplicația.</string>
+    <string name="welcome_support_open">Deschide Ko-fi</string>
+    <string name="welcome_state_collapsed">Restrâns</string>
+    <string name="welcome_state_expanded">Extins</string>
+    <string name="welcome_support_unavailable">Ko-fi nu a putut fi deschis.</string>
+    <string name="welcome_ack_save_failed">Confirmarea nu a putut fi salvată.</string>
+</resources>

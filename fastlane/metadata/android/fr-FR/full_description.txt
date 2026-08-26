@@ -8,12 +8,12 @@ Fonctions :
 • repères de portions fondés sur la main et des mesures domestiques
 • sauvegarde et restauration locales via le sélecteur de documents Android
 • rapports PDF locaux
-• allemand, anglais, espagnol, français et portugais européen
+• allemand, anglais, espagnol, français, portugais européen, turc, arabe, polonais, russe, ukrainien et roumain
 • thèmes clairs, sombres et pastel chaleureux
 • compagnon local facultatif, désactivé par défaut et sauvegardé séparément
 
 Le compagnon utilise uniquement des jetons gagnés localement dans l'application. Il n'y a aucun achat, aucune publicité et aucun déblocage payant.
 
-Les indications de portions sont fournies uniquement à titre général. Esca Agnellis ne fournit pas de conseil médical, diététique ou nutritionnel individualisé et n'est pas un produit officiel du BZfE ou du BLE.
+Les indications de portions sont fournies uniquement à titre général. La pyramide standard et les repères de portions utilisent comme base les informations publiques du BZfE sur la pyramide alimentaire, état au 25.09.2024. Esca Agnellis est une mise en œuvre numérique indépendante, n'utilise aucun visuel BZfE/BLE et n'est ni affiliée, ni soutenue, ni sponsorisée par le BZfE ou le BLE. L'application ne fournit pas de conseil médical, diététique ou nutritionnel individualisé.
 
 Le code de l'application et les scripts de compilation sont des logiciels libres sous GPL-3.0-only.

@@ -1,0 +1,19 @@
+<resources>
+    <string name="welcome_action_exit">Çıkış</string>
+    <string name="welcome_action_continue">Devam et</string>
+    <string name="welcome_action_back">Geri</string>
+    <string name="welcome_action_close">Kapat</string>
+    <string name="welcome_avatar_description">K2040’ın kişisel avatarı</string>
+    <string name="welcome_app_summary">Günlük kullanım için dostça bir beslenme piramidi — genel kayıt ve yönlendirme içindir; tıbbi, diyetetik veya kişiye özel beslenme danışmanlığı değildir.</string>
+    <string name="welcome_trust_summary">Yerel · Çevrimdışı · Hesap yok · Reklam yok · Takip yok</string>
+    <string name="welcome_trust_local">Yerel · Çevrimdışı · Hesap yok</string>
+    <string name="welcome_trust_tracking">Reklam yok · Takip yok</string>
+    <string name="welcome_licence_summary">Kod: GPLv3 §7(b) K2040 atıf koruma şartıyla GNU GPLv3. Proje görselleri: bağımsız atıf gerektiren CC BY 4.0. Üçüncü taraf bağımlılıkları: kendi lisans ve bildirimlerini korur.</string>
+    <string name="welcome_credits_title">Teşekkür / Katkılar</string>
+    <string name="welcome_support_description">Ko-fi geliştirmeyi desteklemek için isteğe bağlı bir yoldur. Özellik açmaz ve uygulamanın çalışma şeklini değiştirmez.</string>
+    <string name="welcome_support_open">Ko-fi’ı aç</string>
+    <string name="welcome_state_collapsed">Daraltılmış</string>
+    <string name="welcome_state_expanded">Genişletilmiş</string>
+    <string name="welcome_support_unavailable">Ko-fi açılamadı.</string>
+    <string name="welcome_ack_save_failed">Onay kaydedilemedi.</string>
+</resources>

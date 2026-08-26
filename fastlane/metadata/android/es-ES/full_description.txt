@@ -8,12 +8,12 @@ Funciones:
 • orientación de porciones mediante medidas de la mano y del hogar
 • copia de seguridad y restauración locales mediante el selector de documentos de Android
 • informes PDF locales
-• alemán, inglés, español, francés y portugués europeo
+• alemán, inglés, español, francés, portugués europeo, turco, árabe, polaco, ruso, ucraniano y rumano
 • temas claros, oscuros y pastel acogedores
 • acompañante local opcional, desactivado de forma predeterminada y con copia de seguridad separada
 
 El acompañante utiliza únicamente tokens obtenidos localmente dentro de la aplicación. No hay compras, anuncios ni desbloqueos de pago.
 
-La información sobre porciones ofrece solo orientación general. Esca Agnellis no proporciona asesoramiento médico, dietético ni nutricional individualizado y no es un producto oficial de BZfE o BLE.
+La información sobre porciones ofrece solo orientación general. La pirámide estándar y las indicaciones de porciones utilizan como base datos públicos de BZfE sobre la pirámide alimentaria, con fecha 25.09.2024. Esca Agnellis es una implementación digital independiente, no utiliza gráficos de BZfE/BLE y no está afiliada, respaldada ni patrocinada por BZfE o BLE. La aplicación no ofrece asesoramiento médico, dietético ni nutricional individualizado.
 
 El código de la aplicación y los scripts de compilación son software libre bajo GPL-3.0-only.

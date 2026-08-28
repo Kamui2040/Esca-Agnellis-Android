@@ -1,5 +1,7 @@
 package com.k2040.escaagnellis;
 
+import android.content.res.Configuration;
+
 import java.time.DayOfWeek;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -63,6 +65,11 @@ final class AppLanguage {
             }
         }
         return Locale.GERMAN;
+    }
+
+    static void applyTo(Configuration configuration, Locale locale) {
+        configuration.setLocale(locale);
+        configuration.setLayoutDirection(locale);
     }
 
     static String compactWeekdayLabel(DayOfWeek dayOfWeek, Locale locale) {

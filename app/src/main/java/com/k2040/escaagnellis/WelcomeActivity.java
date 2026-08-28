@@ -75,7 +75,7 @@ public final class WelcomeActivity extends Activity {
                 uiPreferences.getString(AppLanguage.PREFERENCE_KEY, AppLanguage.SYSTEM),
                 systemLocales);
         Configuration configuration = new Configuration(currentConfiguration);
-        configuration.setLocale(locale);
+        AppLanguage.applyTo(configuration, locale);
         super.attachBaseContext(newBase.createConfigurationContext(configuration));
     }
 
@@ -142,7 +142,7 @@ public final class WelcomeActivity extends Activity {
         viewport.addView(shell, shellParams);
 
         ImageView avatar = new ImageView(this);
-        avatar.setImageResource(R.drawable.about_wolf);
+        avatar.setImageResource(R.drawable.k2040_omnisexual_icon);
         avatar.setScaleType(ImageView.ScaleType.FIT_CENTER);
         avatar.setAdjustViewBounds(true);
         avatar.setContentDescription(getString(R.string.welcome_avatar_description));
@@ -292,7 +292,7 @@ public final class WelcomeActivity extends Activity {
         header.setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
 
         ImageView avatar = new ImageView(this);
-        avatar.setImageResource(R.drawable.about_wolf);
+        avatar.setImageResource(R.drawable.k2040_omnisexual_icon);
         avatar.setScaleType(ImageView.ScaleType.FIT_CENTER);
         avatar.setAdjustViewBounds(true);
         avatar.setContentDescription(getString(R.string.welcome_avatar_description));

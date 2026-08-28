@@ -1,0 +1,19 @@
+<resources>
+    <string name="welcome_action_exit">خروج</string>
+    <string name="welcome_action_continue">متابعة</string>
+    <string name="welcome_action_back">رجوع</string>
+    <string name="welcome_action_close">إغلاق</string>
+    <string name="welcome_avatar_description">رمز K2040</string>
+    <string name="welcome_app_summary">هرم غذائي ودود للحياة اليومية — للتسجيل والتوجيه العام، وليس للنصائح الطبية أو الحميات الغذائية أو الاستشارات الغذائية الفردية.</string>
+    <string name="welcome_trust_summary">محلي · دون اتصال · بلا حساب · بلا إعلانات · بلا تتبع</string>
+    <string name="welcome_trust_local">محلي · دون اتصال · بلا حساب</string>
+    <string name="welcome_trust_tracking">بلا إعلانات · بلا تتبع</string>
+    <string name="welcome_licence_summary">الشفرة: GNU GPLv3 مع شرط الحفاظ على نسب K2040 وفق GPLv3 §7(b). رسومات المشروع: CC BY 4.0 مع نسب مستقل. تحتفظ التبعيات الخارجية بتراخيصها وإشعاراتها الخاصة.</string>
+    <string name="welcome_credits_title">شكر / مساهمون</string>
+    <string name="welcome_support_description">Ko-fi وسيلة اختيارية لدعم التطوير. لا يفتح ميزات ولا يغيّر طريقة عمل التطبيق.</string>
+    <string name="welcome_support_open">فتح Ko-fi</string>
+    <string name="welcome_state_collapsed">مطوي</string>
+    <string name="welcome_state_expanded">موسّع</string>
+    <string name="welcome_support_unavailable">تعذر فتح Ko-fi.</string>
+    <string name="welcome_ack_save_failed">تعذر حفظ التأكيد.</string>
+</resources>

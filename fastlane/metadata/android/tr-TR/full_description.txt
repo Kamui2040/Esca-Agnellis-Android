@@ -1,0 +1,19 @@
+Esca Agnellis, beslenme piramidi üzerinden porsiyonları baskı kurmadan takip etmeye yardımcı olan yerel bir Android uygulamasıdır.
+
+Uygulama hesap veya İnternet izni olmadan çalışır. Takip verileri cihazda kalır. Reklam, telemetri, analiz, bulut eşitleme veya otomatik arka plan veri toplama yoktur.
+
+Özellikler:
+• günlük porsiyon takibi
+• kişisel geçmiş için genel bakış ve istatistikler
+• el ve ev ölçüleriyle pratik porsiyon rehberi
+• Android belge seçicisiyle yerel yedekleme ve geri yükleme
+• yerel PDF raporları
+• Almanca, İngilizce, İspanyolca, Fransızca, Avrupa Portekizcesi, Türkçe, Arapça, Lehçe, Rusça, Ukraynaca ve Romence
+• açık, koyu ve sıcak pastel temalar
+• varsayılan olarak kapalı, ayrı yedeklenebilen isteğe bağlı yerel arkadaş
+
+Arkadaş yalnızca uygulamada yerel olarak kazanılan jetonları kullanır. Satın alma, reklam veya ücretli kilit açma yoktur.
+
+Porsiyon bilgileri yalnızca genel yönlendirme içindir. Standart piramit ve porsiyon rehberi, Bundeszentrum für Ernährung (BZfE) tarafından yayımlanan ve 25.09.2024 tarihli kamuya açık beslenme piramidi bilgilerini veri temeli olarak kullanır. Esca Agnellis bağımsız bir dijital uygulamadır, BZfE/BLE grafikleri kullanmaz ve BZfE veya BLE ile bağlantılı değildir; onlar tarafından onaylanmaz, desteklenmez veya sponsor edilmez. Uygulama tıbbi, diyetetik veya kişiye özel beslenme danışmanlığı sunmaz.
+
+Uygulama kodu ve derleme betikleri GPL-3.0-only kapsamında özgür yazılımdır.

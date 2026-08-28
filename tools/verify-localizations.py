@@ -9,7 +9,19 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "app" / "src" / "main" / "res"
 EXPECTED_COUNT = 221
-LOCALES = {"de": "values", "en": "values-en", "es": "values-es", "fr": "values-fr", "pt-PT": "values-pt-rPT"}
+LOCALES = {
+    "de": "values",
+    "en": "values-en",
+    "es": "values-es",
+    "fr": "values-fr",
+    "pt-PT": "values-pt-rPT",
+    "tr": "values-tr",
+    "ar": "values-ar",
+    "pl": "values-pl",
+    "ru": "values-ru",
+    "uk": "values-uk",
+    "ro": "values-ro",
+}
 PLACEHOLDER_RE = re.compile(r"%(?:\d+\$)?[-#+ 0,(<]*\d*(?:\.\d+)?[a-zA-Z]")
 MOJIBAKE_RE = re.compile(r"\u00C3.|\u00C2.|\u00E2\u20AC[\u2122\u0153\u017E\u201C\u201D]|\u00F0\u0178|\u00EF\u00BF\u00BD|\uFFFD")
 failures: list[str] = []

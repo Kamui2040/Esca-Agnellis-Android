@@ -95,6 +95,7 @@ final class PyramidReportModel {
         for (int position = 0; position < day.ticks.length; position++) {
             if (!day.ticks[position]) continue;
             int subtype = PyramidScheme.subtypeForPosition(position);
+            if (subtype == PyramidScheme.SUBTYPE_DRINKS) continue;
             switch (colorForSubtype(subtype)) {
                 case GREEN:
                     green++;
@@ -111,6 +112,7 @@ final class PyramidReportModel {
         }
 
         for (int subtype = 0; subtype < day.subtypeExtras.length; subtype++) {
+            if (subtype == PyramidScheme.SUBTYPE_DRINKS) continue;
             int extraCount = day.subtypeExtras[subtype];
             switch (colorForSubtype(subtype)) {
                 case GREEN:
@@ -208,7 +210,6 @@ final class PyramidReportModel {
             case PyramidScheme.SUBTYPE_GRAINS:
             case PyramidScheme.SUBTYPE_SIDES:
             case PyramidScheme.SUBTYPE_PRODUCE:
-            case PyramidScheme.SUBTYPE_DRINKS:
                 return ReportColor.GREEN;
             default:
                 throw new IllegalArgumentException("Unsupported pyramid subtype: " + subtype);

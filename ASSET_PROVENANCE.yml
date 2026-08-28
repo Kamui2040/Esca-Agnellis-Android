@@ -5,25 +5,25 @@ inventory_version: "2026-07-24-phase-1"
 tracked_visual_asset_count: 31
 scope_note: "This inventory covers the 31 runtime/source visual assets. Localized Fastlane store screenshots are excluded from this count and are tracked separately in fastlane/SCREENSHOT_PROVENANCE.md."
 assets:
-  - path: "app/src/main/res/drawable-nodpi/about_wolf.png"
-    sha256: "a3c3a6f63c1e1864df2b84709b79bc24d0f00a3420baea46cb742876dae74881"
-    size_bytes: 3308930
-    dimensions_or_viewport: "1254x1254 px"
+  - path: "app/src/main/res/drawable-nodpi/k2040_omnisexual_icon.png"
+    sha256: "78a9d3723bb28ce3412ec43a361592a5969fb69619f7ed46d6198e429e5f6bfc"
+    size_bytes: 127244
+    dimensions_or_viewport: "512x512 px"
     media_type: "image/png"
     alpha_state: "genuine-alpha"
     alpha_pixels:
-      fully_transparent: 331393
-      partial: 0
-      opaque: 1241123
-    transparency_note: "True transparency exists outside the circular artwork; the file has no partial-alpha pixels."
-    provenance: "Generated with OpenAI ChatGPT specifically for Esca Agnellis at K2040's request; no third-party source artwork or supplied third-party visual input was used."
+      fully_transparent: 207200
+      partial: 52441
+      opaque: 2503
+    transparency_note: "Transparent background with anti-aliased partially transparent edges."
+    provenance: "Generated with OpenAI ChatGPT at K2040's request as a shared K2040 brand asset; no third-party source artwork or supplied third-party visual input was used."
     rights_holder: "K2040, only to the extent licensable rights exist under applicable law"
     licence: "CC-BY-4.0"
     attribution: "Esca Agnellis artwork by K2040"
     publication_status: "rights-cleared-for-planned-source-publication-subject-to-applicable-visual-and-device-qa"
     publication_blocker: false
     blocker_state: "rights-cleared"
-    required_action: "Complete later in-app visual QA at actual rendered size before release acceptance."
+    required_action: "Verify the K2040 symbol at actual rendered size before release acceptance."
     unresolved_rights_action: false
     third_party_source_inputs: "none-declared"
     ai_generated_output_may_not_be_unique: true

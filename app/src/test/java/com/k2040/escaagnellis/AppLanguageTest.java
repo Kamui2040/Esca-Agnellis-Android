@@ -18,6 +18,12 @@ public class AppLanguageTest {
         assertEquals("es", AppLanguage.normalizeStoredValue(" es "));
         assertEquals("fr", AppLanguage.normalizeStoredValue("fr"));
         assertEquals("pt-PT", AppLanguage.normalizeStoredValue("pt-pt"));
+        assertEquals("tr", AppLanguage.normalizeStoredValue("TR"));
+        assertEquals("ar", AppLanguage.normalizeStoredValue("ar"));
+        assertEquals("pl", AppLanguage.normalizeStoredValue(" pl "));
+        assertEquals("ru", AppLanguage.normalizeStoredValue("ru"));
+        assertEquals("uk", AppLanguage.normalizeStoredValue("UK"));
+        assertEquals("ro", AppLanguage.normalizeStoredValue("ro"));
     }
 
     @Test
@@ -29,7 +35,10 @@ public class AppLanguageTest {
 
     @Test
     public void stableIndexMappingRoundTrips() {
-        String[] expected = {"system", "de", "en", "es", "fr", "pt-PT"};
+        String[] expected = {
+                "system", "de", "en", "es", "fr", "pt-PT",
+                "tr", "ar", "pl", "ru", "uk", "ro"
+        };
         for (int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], AppLanguage.tagAt(i));
             assertEquals(i, AppLanguage.indexOf(expected[i]));
@@ -46,6 +55,12 @@ public class AppLanguageTest {
         assertEquals("es", AppLanguage.explicitLocale("es").toLanguageTag());
         assertEquals("fr", AppLanguage.explicitLocale("fr").toLanguageTag());
         assertEquals("pt-PT", AppLanguage.explicitLocale("pt-PT").toLanguageTag());
+        assertEquals("tr", AppLanguage.explicitLocale("tr").toLanguageTag());
+        assertEquals("ar", AppLanguage.explicitLocale("ar").toLanguageTag());
+        assertEquals("pl", AppLanguage.explicitLocale("pl").toLanguageTag());
+        assertEquals("ru", AppLanguage.explicitLocale("ru").toLanguageTag());
+        assertEquals("uk", AppLanguage.explicitLocale("uk").toLanguageTag());
+        assertEquals("ro", AppLanguage.explicitLocale("ro").toLanguageTag());
     }
 
     @Test
@@ -57,6 +72,12 @@ public class AppLanguageTest {
         assertEquals("pt-PT", AppLanguage.resolveLocale(
                 AppLanguage.SYSTEM,
                 Locale.forLanguageTag("pt-PT")).toLanguageTag());
+        assertEquals("tr-TR", AppLanguage.resolveLocale(
+                AppLanguage.SYSTEM,
+                Locale.forLanguageTag("tr-TR")).toLanguageTag());
+        assertEquals("ar-DE", AppLanguage.resolveLocale(
+                AppLanguage.SYSTEM,
+                Locale.forLanguageTag("ar-DE")).toLanguageTag());
     }
 
     @Test
@@ -76,6 +97,9 @@ public class AppLanguageTest {
         assertEquals("fr", AppLanguage.resolveLocale(
                 "fr",
                 Locale.forLanguageTag("en-US")).toLanguageTag());
+        assertEquals("uk", AppLanguage.resolveLocale(
+                "uk",
+                Locale.forLanguageTag("de-DE")).toLanguageTag());
     }
 
     @Test
@@ -100,6 +124,18 @@ public class AppLanguageTest {
         for (int i = 0; i < days.length; i++) {
             assertEquals(expected[i], AppLanguage.compactWeekdayLabel(
                     days[i], portuguese));
+        }
+    }
+
+    @Test
+    public void compactWeekdayLabelsHandleNewLocalesWithoutOverflow() {
+        String[] tags = {"tr", "ar", "pl", "ru", "uk", "ro"};
+        for (String tag : tags) {
+            String label = AppLanguage.compactWeekdayLabel(
+                    DayOfWeek.WEDNESDAY,
+                    Locale.forLanguageTag(tag));
+            int codePoints = label.codePointCount(0, label.length());
+            org.junit.Assert.assertTrue(codePoints >= 1 && codePoints <= 3);
         }
     }
 }

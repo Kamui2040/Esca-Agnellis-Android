@@ -1,5 +1,7 @@
 package com.k2040.escaagnellis;
 
+import android.content.res.Configuration;
+
 import java.time.DayOfWeek;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -15,7 +17,13 @@ final class AppLanguage {
             "en",
             "es",
             "fr",
-            "pt-PT"
+            "pt-PT",
+            "tr",
+            "ar",
+            "pl",
+            "ru",
+            "uk",
+            "ro"
     };
 
     private AppLanguage() {
@@ -59,6 +67,11 @@ final class AppLanguage {
         return Locale.GERMAN;
     }
 
+    static void applyTo(Configuration configuration, Locale locale) {
+        configuration.setLocale(locale);
+        configuration.setLayoutDirection(locale);
+    }
+
     static String compactWeekdayLabel(DayOfWeek dayOfWeek, Locale locale) {
         if (dayOfWeek == null || locale == null) {
             throw new IllegalArgumentException("Missing weekday locale");
@@ -75,7 +88,13 @@ final class AppLanguage {
         if ("de".equals(language)
                 || "en".equals(language)
                 || "es".equals(language)
-                || "fr".equals(language)) {
+                || "fr".equals(language)
+                || "tr".equals(language)
+                || "ar".equals(language)
+                || "pl".equals(language)
+                || "ru".equals(language)
+                || "uk".equals(language)
+                || "ro".equals(language)) {
             return true;
         }
         return "pt".equals(language) && "PT".equalsIgnoreCase(locale.getCountry());

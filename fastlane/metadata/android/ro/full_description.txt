@@ -1,0 +1,19 @@
+Esca Agnellis este o aplicație Android locală pentru urmărirea liniștită, fără presiune, a porțiilor după o piramidă alimentară.
+
+Aplicația funcționează fără cont și fără permisiune de acces la internet. Datele rămân pe dispozitiv. Nu există reclame, telemetrie, analiză de utilizare, sincronizare în cloud sau colectare automată de date în fundal.
+
+Funcții:
+• urmărirea zilnică a porțiilor
+• prezentare generală și statistici pentru istoricul personal
+• repere practice pentru porții folosind mâna și măsuri casnice
+• copie de siguranță și restaurare locale prin selectorul de documente Android
+• rapoarte PDF locale
+• germană, engleză, spaniolă, franceză, portugheză europeană, turcă, arabă, poloneză, rusă, ucraineană și română
+• teme luminoase, întunecate și pastel cald
+• însoțitor local opțional, dezactivat implicit și salvat separat
+
+Însoțitorul folosește numai jetoane câștigate local în aplicație. Nu există achiziții, reclame sau deblocări contra cost.
+
+Informațiile despre porții oferă doar orientare generală. Piramida standard și reperele de porții folosesc ca bază informațiile publice ale Bundeszentrum für Ernährung (BZfE) din Germania despre piramida alimentară, versiunea din 25.09.2024. Esca Agnellis este o implementare digitală independentă, nu folosește materiale grafice BZfE/BLE și nu este afiliată, aprobată, susținută sau sponsorizată de BZfE ori BLE. Aplicația nu oferă sfaturi medicale, dietetice sau nutriționale individuale.
+
+Codul aplicației și scripturile de compilare sunt software liber sub licența GPL-3.0-only.

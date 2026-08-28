@@ -189,6 +189,14 @@ final class PyramidPdfWriter {
                     contentWidth(),
                     paint,
                     12f);
+            y = drawWrappedText(
+                    canvas,
+                    labels.sourceAttribution,
+                    MARGIN,
+                    y + 2f,
+                    contentWidth(),
+                    paint,
+                    12f);
             paint.setTypeface(Typeface.create("sans", Typeface.ITALIC));
             y = drawWrappedText(
                     canvas,
@@ -433,6 +441,7 @@ final class PyramidPdfWriter {
         final String appVersion;
         final String generatedOn;
         final String pyramidDefinition;
+        final String sourceAttribution;
         final String notice;
         final String pageFormat;
 
@@ -449,6 +458,7 @@ final class PyramidPdfWriter {
                 String appVersion,
                 String generatedOn,
                 String pyramidDefinition,
+                String sourceAttribution,
                 String notice,
                 String pageFormat) {
             this.title = required(title);
@@ -463,6 +473,7 @@ final class PyramidPdfWriter {
             this.appVersion = required(appVersion);
             this.generatedOn = required(generatedOn);
             this.pyramidDefinition = required(pyramidDefinition);
+            this.sourceAttribution = required(sourceAttribution);
             this.notice = required(notice);
             this.pageFormat = required(pageFormat);
         }

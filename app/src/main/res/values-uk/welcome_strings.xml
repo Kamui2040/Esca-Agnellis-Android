@@ -1,0 +1,19 @@
+<resources>
+    <string name="welcome_action_exit">Вийти</string>
+    <string name="welcome_action_continue">Продовжити</string>
+    <string name="welcome_action_back">Назад</string>
+    <string name="welcome_action_close">Закрити</string>
+    <string name="welcome_avatar_description">Символ K2040</string>
+    <string name="welcome_app_summary">Дружня піраміда харчування на щодень — для загального обліку й орієнтації, а не для медичних, дієтологічних чи індивідуальних порад із харчування.</string>
+    <string name="welcome_trust_summary">Локально · Офлайн · Без облікового запису · Без реклами · Без відстеження</string>
+    <string name="welcome_trust_local">Локально · Офлайн · Без облікового запису</string>
+    <string name="welcome_trust_tracking">Без реклами · Без відстеження</string>
+    <string name="welcome_licence_summary">Код: GNU GPLv3 з умовою збереження атрибуції K2040 за GPLv3 §7(b). Графіка проєкту: CC BY 4.0 з окремою вимогою атрибуції. Сторонні залежності зберігають власні ліцензії та повідомлення.</string>
+    <string name="welcome_credits_title">Подяки / Учасники</string>
+    <string name="welcome_support_description">Ko-fi — необов’язковий спосіб підтримати розробку. Він не відкриває функції та не змінює роботу застосунку.</string>
+    <string name="welcome_support_open">Відкрити Ko-fi</string>
+    <string name="welcome_state_collapsed">Згорнуто</string>
+    <string name="welcome_state_expanded">Розгорнуто</string>
+    <string name="welcome_support_unavailable">Не вдалося відкрити Ko-fi.</string>
+    <string name="welcome_ack_save_failed">Не вдалося зберегти підтвердження.</string>
+</resources>

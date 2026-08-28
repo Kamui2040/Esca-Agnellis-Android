@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.text.BidiFormatter;
 import android.text.InputType;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -86,7 +87,7 @@ public class MainActivity extends Activity {
                 uiPreferences.getString(AppLanguage.PREFERENCE_KEY, AppLanguage.SYSTEM),
                 systemLocales);
         Configuration configuration = new Configuration(currentConfiguration);
-        configuration.setLocale(locale);
+        AppLanguage.applyTo(configuration, locale);
         super.attachBaseContext(newBase.createConfigurationContext(configuration));
     }
 
@@ -345,7 +346,7 @@ public class MainActivity extends Activity {
         private final RectF companionCuddleHeartDrawBounds = new RectF();
         private Bitmap foodDessertBmp, foodOilBmp, foodButterBmp, foodMilkCheeseBmp,
                 foodProteinBmp, foodWheatBmp, foodWheatPotatoBmp, foodProduceBmp,
-                foodWaterBmp, foodNutsSeedsBmp, aboutWolfBmp, appSymbolBmp,
+                foodWaterBmp, foodNutsSeedsBmp, aboutBrandBmp, appSymbolBmp,
                 companionArtworkIdleBmp, companionArtworkHappyBmp,
                 companionArtworkEatingBmp, companionArtworkCuddleBmp,
                 companionArtworkSleepingBmp, companionBackdropDayBmp,
@@ -757,13 +758,13 @@ public class MainActivity extends Activity {
         private void drawHeader(Canvas c, float left, float top, float right) {
             boolean cozy = isPastelCozy();
             float iconSize = dp(46);
-            RectF aboutIcon = new RectF(left, top + dp(3), left + iconSize, top + dp(3) + iconSize);
+            RectF aboutIcon = startRect(left, right, dp(0), iconSize, top + dp(3), iconSize);
 
             float settingsSize = dp(40);
-            RectF settings = new RectF(right - settingsSize, top + dp(5), right, top + dp(5) + settingsSize);
+            RectF settings = endRect(left, right, dp(0), settingsSize, top + dp(5), settingsSize);
 
-            float textLeft = aboutIcon.right + dp(12);
-            float textRight = settings.left - dp(12);
+            float textStart = isRtl() ? aboutIcon.left - dp(12) : aboutIcon.right + dp(12);
+            float textEnd = isRtl() ? settings.right + dp(12) : settings.left - dp(12);
 
             if (appSymbolBmp != null) {
                 drawRoundedBitmapIcon(c, appSymbolBmp, aboutIcon, dp(12));
@@ -777,7 +778,7 @@ public class MainActivity extends Activity {
                 text.setFakeBoldText(true);
                 float titleSize = cozy ? dp(27) : dp(28);
                 text.setTextSize(titleSize);
-                float titleMaxW = Math.max(dp(150), settings.left - aboutIcon.right - dp(24));
+                float titleMaxW = Math.max(dp(150), Math.abs(settings.centerX() - aboutIcon.centerX()) - dp(24));
                 while (text.measureText(headerTitle) > titleMaxW && titleSize > dp(18)) {
                     titleSize -= dp(1);
                     text.setTextSize(titleSize);
@@ -791,7 +792,13 @@ public class MainActivity extends Activity {
                 text.setFakeBoldText(false);
 
                 float infoTargetSize = dp(44);
-                float infoCx = Math.min(titleCenter + titleWidth / 2f + dp(24), settings.left - dp(22));
+                float infoCx = isRtl()
+                        ? Math.max(
+                                titleCenter - titleWidth / 2f - dp(24),
+                                settings.right + dp(22))
+                        : Math.min(
+                                titleCenter + titleWidth / 2f + dp(24),
+                                settings.left - dp(22));
                 float infoCy = titleBaseline + (titleMetrics.ascent + titleMetrics.descent) / 2f;
                 RectF info = new RectF(infoCx - infoTargetSize / 2f, infoCy - infoTargetSize / 2f,
                         infoCx + infoTargetSize / 2f, infoCy + infoTargetSize / 2f);
@@ -824,28 +831,29 @@ public class MainActivity extends Activity {
                 }));
             } else {
                 String headerTitle = s(R.string.header_pyramid);
-                text.setTextAlign(Paint.Align.LEFT);
+                text.setTextAlign(startAlign());
                 text.setFakeBoldText(true);
                 float titleSize = cozy ? dp(25) : dp(26);
                 text.setTextSize(titleSize);
-                while (text.measureText(headerTitle) > (textRight - textLeft) && titleSize > dp(17)) {
+                while (text.measureText(headerTitle) > Math.abs(textEnd - textStart) && titleSize > dp(17)) {
                     titleSize -= dp(1);
                     text.setTextSize(titleSize);
                 }
                 text.setColor(accent);
-                c.drawText(headerTitle, textLeft, top + dp(29), text);
+                text.setTextAlign(startAlign());
+                c.drawText(headerTitle, textStart, top + dp(29), text);
                 text.setFakeBoldText(false);
 
                 float subSize = dp(13);
                 text.setTextSize(subSize);
                 String subtitle = s(R.string.header_subtitle);
-                while (text.measureText(subtitle) > (textRight - textLeft) && subSize > dp(10)) {
+                while (text.measureText(subtitle) > Math.abs(textEnd - textStart) && subSize > dp(10)) {
                     subSize -= dp(1);
                     text.setTextSize(subSize);
                 }
                 text.setColor(secondaryText);
-                c.drawText(subtitle, textLeft, top + dp(52), text);
-                if (cozy) drawLeafSprig(c, textLeft + dp(2), top + dp(60), dp(15), accent);
+                c.drawText(BidiFormatter.getInstance(isRtl()).unicodeWrap(subtitle), textStart, top + dp(52), text);
+                if (cozy) drawLeafSprig(c, textStart + (isRtl() ? -dp(2) : dp(2)), top + dp(60), dp(15), accent);
             }
 
             int settingsFill = cozy ? (dark ? Color.rgb(61, 53, 67) : Color.rgb(255, 249, 238)) : alpha(accent, dark ? 44 : 24);
@@ -874,10 +882,10 @@ public class MainActivity extends Activity {
             c.drawText(dateHeader(selectedDate), r.centerX(), top + dp(27), text);
             text.setFakeBoldText(false);
 
-            RectF prev = new RectF(left + dp(8), top + dp(8), left + dp(48), top + dp(48));
-            RectF next = new RectF(right - dp(48), top + dp(8), right - dp(8), top + dp(48));
-            drawChevron(c, prev, true, accent);
-            drawChevron(c, next, false, accent);
+            RectF prev = startRect(left, right, dp(8), dp(40), top + dp(8), dp(40));
+            RectF next = endRect(left, right, dp(8), dp(40), top + dp(8), dp(40));
+            drawChevron(c, prev, !isRtl(), accent);
+            drawChevron(c, next, isRtl(), accent);
             targets.add(new TouchTarget(prev, () -> changeSelectedDate(selectedDate.minusDays(1))));
             targets.add(new TouchTarget(next, () -> changeSelectedDate(selectedDate.plusDays(1))));
 
@@ -886,7 +894,10 @@ public class MainActivity extends Activity {
             float x = left + dp(16);
             for (int i = 0; i < 7; i++) {
                 final LocalDate day = start.plusDays(i);
-                RectF cell = new RectF(x + i * cellW, top + dp(37), x + (i + 1) * cellW, top + dp(80));
+                float cellLeft = isRtl()
+                        ? right - dp(16) - (i + 1) * cellW
+                        : x + i * cellW;
+                RectF cell = new RectF(cellLeft, top + dp(37), cellLeft + cellW, top + dp(80));
                 boolean isSelected = day.equals(selectedDate);
                 if (isSelected) {
                     p.setStyle(Paint.Style.FILL);
@@ -1135,10 +1146,10 @@ public class MainActivity extends Activity {
             c.drawText(monthHeader(overviewMonth), cardRect.centerX(), top + dp(34), text);
             text.setFakeBoldText(false);
 
-            RectF prev = new RectF(left + dp(10), top + dp(11), left + dp(48), top + dp(49));
-            RectF next = new RectF(right - dp(48), top + dp(11), right - dp(10), top + dp(49));
-            drawChevron(c, prev, true, accent);
-            drawChevron(c, next, false, accent);
+            RectF prev = startRect(left, right, dp(10), dp(38), top + dp(11), dp(38));
+            RectF next = endRect(left, right, dp(10), dp(38), top + dp(11), dp(38));
+            drawChevron(c, prev, !isRtl(), accent);
+            drawChevron(c, next, isRtl(), accent);
             targets.add(new TouchTarget(prev, () -> overviewMonth = overviewMonth.minusMonths(1)));
             targets.add(new TouchTarget(next, () -> overviewMonth = overviewMonth.plusMonths(1)));
 
@@ -1152,7 +1163,7 @@ public class MainActivity extends Activity {
             for (int i = 0; i < 7; i++) {
                 String dayLabel = AppLanguage.compactWeekdayLabel(
                         weekStart.plusDays(i).getDayOfWeek(), appLocale());
-                c.drawText(dayLabel, gridLeft + cellW * (i + 0.5f), weekY, text);
+                c.drawText(dayLabel, calendarCellCenter(gridLeft, gridRight, cellW, i), weekY, text);
             }
 
             LocalDate first = overviewMonth;
@@ -1163,7 +1174,8 @@ public class MainActivity extends Activity {
             for (int row = 0; row < 6; row++) {
                 for (int col = 0; col < 7; col++) {
                     LocalDate d = cursor.plusDays(row * 7L + col);
-                    RectF cell = new RectF(gridLeft + col * cellW + dp(2), y + row * cellH, gridLeft + (col + 1) * cellW - dp(2), y + (row + 1) * cellH - dp(3));
+                    float cellLeft = calendarCellLeft(gridLeft, gridRight, cellW, col) + dp(2);
+                    RectF cell = new RectF(cellLeft, y + row * cellH, cellLeft + cellW - dp(4), y + (row + 1) * cellH - dp(3));
                     boolean inMonth = d.getMonth().equals(overviewMonth.getMonth());
                     boolean selected = d.equals(selectedDate);
                     if (selected) {
@@ -1239,11 +1251,11 @@ public class MainActivity extends Activity {
                 p.setStyle(Paint.Style.FILL);
                 p.setColor(dark ? alpha(Color.WHITE, 15) : alpha(Color.WHITE, 115));
                 c.drawRoundRect(section, dp(15), dp(15), p);
-                text.setTextAlign(Paint.Align.LEFT);
+                text.setTextAlign(startAlign());
                 text.setFakeBoldText(true);
                 text.setTextSize(dp(14));
                 text.setColor(primaryText);
-                c.drawText(titles[period], section.left + dp(14), section.top + dp(23), text);
+                c.drawText(titles[period], startX(section, dp(14)), section.top + dp(23), text);
                 text.setFakeBoldText(false);
 
                 float boxY = section.top + dp(28);
@@ -1257,14 +1269,14 @@ public class MainActivity extends Activity {
                 p.setStyle(Paint.Style.FILL);
                 p.setColor(dark ? alpha(Color.WHITE, 15) : alpha(Color.WHITE, 115));
                 c.drawRoundRect(waterSection, dp(15), dp(15), p);
-                text.setTextAlign(Paint.Align.LEFT);
+                text.setTextAlign(startAlign());
                 text.setFakeBoldText(true);
                 text.setTextSize(dp(13));
                 text.setColor(primaryText);
-                c.drawText(s(R.string.portions_drinks_title), waterSection.left + dp(14), waterSection.top + dp(20), text);
+                c.drawText(s(R.string.portions_drinks_title), startX(waterSection, dp(14)), waterSection.top + dp(19), text);
                 text.setFakeBoldText(false);
                 drawStatBox(c,
-                        new RectF(waterSection.left + dp(12), waterSection.top + dp(21), waterSection.right - dp(12), waterSection.top + dp(51)),
+                        new RectF(waterSection.left + dp(12), waterSection.top + dp(27), waterSection.right - dp(12), waterSection.top + dp(57)),
                         CAT_WATER,
                         ps.usedByGroup[GROUP_DRINKS],
                         ps.totalByGroup[GROUP_DRINKS],
@@ -1283,7 +1295,7 @@ public class MainActivity extends Activity {
         }
 
         private float waterSectionHeight(int period) {
-            return 54f + (isExpanded(period * 10 + CAT_WATER) ? 34f : 0f);
+            return 60f + (isExpanded(period * 10 + CAT_WATER) ? 34f : 0f);
         }
 
         private float statPeriodHeight(int period) {
@@ -1339,11 +1351,8 @@ public class MainActivity extends Activity {
         }
 
         private int visualExtraUsed(PeriodStats ps, int cat, int period) {
-            if (cat != CAT_GREEN && cat != CAT_WATER) return ps.usedExtraByCat[cat];
-            int drinkExtras = periodDrinkExtras(period);
-            return cat == CAT_WATER
-                    ? drinkExtras
-                    : Math.max(0, ps.usedExtraByCat[CAT_GREEN] - drinkExtras);
+            if (cat == CAT_WATER) return periodDrinkExtras(period);
+            return ps.usedExtraByCat[cat];
         }
 
         private int periodDrinkExtras(int period) {
@@ -1390,28 +1399,28 @@ public class MainActivity extends Activity {
             c.drawRoundRect(r, dp(16), dp(16), p);
 
             RectF bulbCircle = new RectF(
-                    r.left + dp(14),
+                    startX(r, dp(14), dp(36)),
                     r.centerY() - dp(18),
-                    r.left + dp(50),
+                    startX(r, dp(14), dp(36)) + dp(36),
                     r.centerY() + dp(18));
             p.setStyle(Paint.Style.FILL);
             p.setColor(alpha(iconCol, dark ? 42 : 28));
             c.drawCircle(bulbCircle.centerX(), bulbCircle.centerY(), dp(18), p);
             drawBulb(c, bulbCircle.centerX(), bulbCircle.centerY() + dp(1), iconCol);
 
-            float textLeft = r.left + dp(60);
+            float textStart = startX(r, dp(60));
             if (!companionVisible) {
                 RectF heart = new RectF(
-                        r.right - dp(46),
+                        endX(r, dp(46), dp(28)),
                         r.centerY() - dp(14),
-                        r.right - dp(18),
+                        endX(r, dp(46), dp(28)) + dp(28),
                         r.centerY() + dp(14));
                 drawHeart(c, heart, iconCol);
 
-                float textRight = heart.left - dp(10);
-                float maxTextWidth = Math.max(dp(120), textRight - textLeft);
+                float textEnd = isRtl() ? heart.right + dp(10) : heart.left - dp(10);
+                float maxTextWidth = Math.max(dp(120), Math.abs(textEnd - textStart));
 
-                text.setTextAlign(Paint.Align.LEFT);
+                text.setTextAlign(startAlign());
                 text.setFakeBoldText(true);
                 float titleSize = dp(14);
                 text.setTextSize(titleSize);
@@ -1421,7 +1430,7 @@ public class MainActivity extends Activity {
                     text.setTextSize(titleSize);
                 }
                 text.setColor(primaryText);
-                c.drawText(motivationTitle, textLeft, r.top + dp(28), text);
+                c.drawText(motivationTitle, textStart, r.top + dp(28), text);
 
                 text.setFakeBoldText(false);
                 float subSize = dp(12);
@@ -1432,14 +1441,14 @@ public class MainActivity extends Activity {
                     text.setTextSize(subSize);
                 }
                 text.setColor(secondaryText);
-                c.drawText(motivationBody, textLeft, r.top + dp(49), text);
+                c.drawText(motivationBody, textStart, r.top + dp(49), text);
                 return;
             }
 
-            float textRight = r.right - dp(106);
-            float maxTextWidth = Math.max(dp(86), textRight - textLeft);
+            float textEnd = isRtl() ? r.left + dp(106) : r.right - dp(106);
+            float maxTextWidth = Math.max(dp(86), Math.abs(textEnd - textStart));
 
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setFakeBoldText(true);
             float titleSize = dp(14);
             text.setTextSize(titleSize);
@@ -1451,7 +1460,7 @@ public class MainActivity extends Activity {
             text.setColor(primaryText);
             c.drawText(
                     ellipsizeText(motivationTitle, maxTextWidth),
-                    textLeft,
+                    textStart,
                     r.top + dp(28),
                     text);
 
@@ -1466,7 +1475,7 @@ public class MainActivity extends Activity {
             text.setColor(secondaryText);
             c.drawText(
                     ellipsizeText(motivationBody, maxTextWidth),
-                    textLeft,
+                    textStart,
                     r.top + dp(49),
                     text);
         }
@@ -1479,10 +1488,12 @@ public class MainActivity extends Activity {
             c.drawRoundRect(new RectF(0, top, w, h + dp(16)), dp(18), dp(18), p);
 
             float itemW = w / 4f;
-            drawNavItem(c, new RectF(0, top, itemW, top + navH), TAB_OVERVIEW, s(R.string.nav_overview));
-            drawNavItem(c, new RectF(itemW, top, itemW * 2f, top + navH), TAB_TODAY, s(R.string.nav_today));
-            drawNavItem(c, new RectF(itemW * 2f, top, itemW * 3f, top + navH), TAB_PORTIONS, s(R.string.nav_portions));
-            drawNavItem(c, new RectF(itemW * 3f, top, w, top + navH), TAB_STATS, s(R.string.nav_statistics));
+            int[] tabs = {TAB_OVERVIEW, TAB_TODAY, TAB_PORTIONS, TAB_STATS};
+            int[] labels = {R.string.nav_overview, R.string.nav_today, R.string.nav_portions, R.string.nav_statistics};
+            for (int i = 0; i < tabs.length; i++) {
+                int visualIndex = isRtl() ? tabs.length - 1 - i : i;
+                drawNavItem(c, new RectF(itemW * visualIndex, top, itemW * (visualIndex + 1), top + navH), tabs[i], s(labels[i]));
+            }
         }
 
         private int bottomNavBackgroundColor() {
@@ -1774,10 +1785,11 @@ public class MainActivity extends Activity {
             float bodyBottom = r.bottom;
             float bodyH = Math.max(dp(20), bodyBottom - bodyTop);
 
-            float symbolColLeft = r.left + dp(8);
+            float symbolColLeft = isRtl()
+                    ? r.right - dp(8) - dp(48) * scale
+                    : r.left + dp(8);
             float symbolColW = dp(48) * scale;
-            float nameX = symbolColLeft + symbolColW + dp(11);
-            float measureX = r.left + r.width() * .56f;
+            float nameX = isRtl() ? symbolColLeft - dp(11) : symbolColLeft + symbolColW + dp(11);
             float rightPadding = dp(10);
 
             float iconSize = dp(29) * scale;
@@ -1797,7 +1809,7 @@ public class MainActivity extends Activity {
             c.drawRoundRect(iconBubble, dp(8.5f), dp(8.5f), p);
             drawFoodIcon(c, inset(iconBubble, iconSize * .14f, iconSize * .14f), iconType, false);
 
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setFakeBoldText(false);
             text.setTextSize(metrics.textSize);
             text.setColor(primaryText);
@@ -1805,19 +1817,19 @@ public class MainActivity extends Activity {
             float contentTop = bodyTop + Math.max(0f, (bodyH - metrics.contentHeight) / 2f);
             float rowTop = contentTop;
             float nameDrawX = nameX;
-            float measureRight = r.right - rightPadding;
+            float measureRight = isRtl() ? r.left + rightPadding : r.right - rightPadding;
             for (int i = 0; i < metrics.rowHeights.length; i++) {
                 float rowHeight = metrics.rowHeights[i];
                 float nameHeight = metrics.nameLineCounts[i] * metrics.lineHeight;
                 float nameY = rowTop + (rowHeight - nameHeight) / 2f + metrics.baselineOffset;
                 if (i < names.length && names[i].length() > 0) {
-                    text.setTextAlign(Paint.Align.LEFT);
+                    text.setTextAlign(startAlign());
                     drawWrappedText(c, names[i], nameDrawX, nameY, metrics.nameMaxWidth, metrics.lineHeight);
                 }
                 if (!sharedMeasure && i < measures.length && measures[i].length() > 0) {
                     float measureHeight = metrics.measureLineCounts[i] * metrics.lineHeight;
                     float measureY = rowTop + (rowHeight - measureHeight) / 2f + metrics.baselineOffset;
-                    text.setTextAlign(Paint.Align.RIGHT);
+                    text.setTextAlign(endAlign());
                     drawWrappedText(c, measures[i], measureRight, measureY, metrics.measureMaxWidth, metrics.lineHeight);
                 }
                 rowTop += rowHeight + metrics.rowGap;
@@ -1826,7 +1838,7 @@ public class MainActivity extends Activity {
             if (sharedMeasure && measures.length > 0 && measures[0].length() > 0) {
                 float measureHeight = metrics.sharedMeasureLineCount * metrics.lineHeight;
                 float measureY = bodyTop + (bodyH - measureHeight) / 2f + metrics.baselineOffset;
-                text.setTextAlign(Paint.Align.RIGHT);
+                text.setTextAlign(endAlign());
                 drawWrappedText(c, measures[0], measureRight, measureY, metrics.measureMaxWidth, metrics.lineHeight);
             }
 
@@ -1910,7 +1922,6 @@ public class MainActivity extends Activity {
         }
 
         private void drawFittedText(Canvas c, String value, float x, float y, float maxW, float startSize, float minSize, boolean bold) {
-            text.setTextAlign(Paint.Align.LEFT);
             text.setFakeBoldText(bold);
             float size = startSize;
             text.setTextSize(size);
@@ -1935,7 +1946,7 @@ public class MainActivity extends Activity {
         }
 
         private void drawPortionBodyTint(Canvas c, RectF r, int col) {
-            p.setShader(new LinearGradient(r.left, r.top, r.right, r.top,
+            p.setShader(new LinearGradient(isRtl() ? r.right : r.left, r.top, isRtl() ? r.left : r.right, r.top,
                     new int[] {
                             alpha(col, dark ? 12 : 18),
                             alpha(col, dark ? 6 : 9),
@@ -1952,7 +1963,9 @@ public class MainActivity extends Activity {
             if (portionsMaxScrollY <= dp(1)) return;
 
             float trackW = dp(3);
-            RectF track = new RectF(viewport.right - trackW, viewport.top + dp(4), viewport.right, viewport.bottom - dp(4));
+            RectF track = isRtl()
+                    ? new RectF(viewport.left, viewport.top + dp(4), viewport.left + trackW, viewport.bottom - dp(4))
+                    : new RectF(viewport.right - trackW, viewport.top + dp(4), viewport.right, viewport.bottom - dp(4));
 
             p.setShader(null);
             p.setStyle(Paint.Style.FILL);
@@ -1974,7 +1987,9 @@ public class MainActivity extends Activity {
             if (maxScrollY <= dp(1) || body.height() <= dp(40)) return;
 
             float trackW = dp(3);
-            RectF track = new RectF(body.right - trackW, body.top + dp(4), body.right, body.bottom - dp(4));
+            RectF track = isRtl()
+                    ? new RectF(body.left, body.top + dp(4), body.left + trackW, body.bottom - dp(4))
+                    : new RectF(body.right - trackW, body.top + dp(4), body.right, body.bottom - dp(4));
 
             p.setShader(null);
             p.setStyle(Paint.Style.FILL);
@@ -2017,15 +2032,15 @@ public class MainActivity extends Activity {
             text.setTextAlign(Paint.Align.CENTER);
             text.setTextSize(dp(13) * scale);
             text.setColor(accent);
-            c.drawText(s(R.string.symbol_chevron), hint.right - dp(13), hint.centerY() + dp(4) * scale, text);
+            c.drawText(s(R.string.symbol_chevron), endX(hint, dp(13)), hint.centerY() + dp(4) * scale, text);
 
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setFakeBoldText(false);
             text.setTextSize(dp(9.4f) * scale);
             text.setColor(primaryText);
             drawWrappedText(c,
                     s(R.string.portions_reference_hint),
-                    hint.left + dp(12),
+                    startX(hint, dp(12)),
                     hint.top + dp(16) * scale,
                     hint.width() - dp(38),
                     dp(12.4f) * scale);
@@ -2054,7 +2069,7 @@ public class MainActivity extends Activity {
             c.drawText(s(R.string.settings_title), panel.centerX(), panel.top + dp(34), text);
             text.setFakeBoldText(false);
 
-            RectF close = new RectF(panel.right - dp(46), panel.top + dp(10), panel.right - dp(10), panel.top + dp(46));
+            RectF close = endRect(panel.left, panel.right, dp(10), dp(36), panel.top + dp(10), dp(36));
             text.setTextSize(dp(24));
             text.setColor(secondaryText);
             c.drawText(s(R.string.symbol_close), close.centerX(), close.centerY() + dp(8), text);
@@ -2093,7 +2108,7 @@ public class MainActivity extends Activity {
             float right = panel.right - dp(20);
             float y = body.top - scrollY + dp(SETTINGS_SECTION_TOP_GAP_DP);
 
-            y = drawSettingsSectionLabel(c, panel.left + dp(22), y, s(R.string.settings_language_description), draw);
+            y = drawSettingsSectionLabel(c, startX(panel, dp(22)), y, s(R.string.settings_language_description), draw);
             RectF language = new RectF(left, y, right, y + dp(SETTINGS_ROW_HEIGHT_DP));
             if (draw) {
                 settingsLanguageSelectorRect.set(language);
@@ -2128,7 +2143,7 @@ public class MainActivity extends Activity {
 
             y = drawSettingsSectionLabel(
                     c,
-                    panel.left + dp(22),
+                    startX(panel, dp(22)),
                     y,
                     s(R.string.settings_companion_section),
                     draw);
@@ -2153,7 +2168,7 @@ public class MainActivity extends Activity {
             }
             y = companion.bottom + dp(SETTINGS_SECTION_GAP_DP);
 
-            y = drawSettingsSectionLabel(c, panel.left + dp(22), y, s(R.string.settings_lookup), draw);
+            y = drawSettingsSectionLabel(c, startX(panel, dp(22)), y, s(R.string.settings_lookup), draw);
             RectF portions = new RectF(left, y, right, y + dp(SETTINGS_ROW_HEIGHT_DP));
             if (draw) {
                 drawSettingsLinkCard(c,
@@ -2181,7 +2196,7 @@ public class MainActivity extends Activity {
             }
             y = bzfe.bottom + dp(SETTINGS_SECTION_GAP_DP);
 
-            y = drawSettingsSectionLabel(c, panel.left + dp(22), y, s(R.string.settings_style), draw);
+            y = drawSettingsSectionLabel(c, startX(panel, dp(22)), y, s(R.string.settings_style), draw);
             RectF backup = new RectF(left, y, right, y + dp(SETTINGS_ROW_HEIGHT_DP));
             if (draw) {
                 drawSettingsLinkCard(c,
@@ -2192,7 +2207,7 @@ public class MainActivity extends Activity {
             }
             y = backup.bottom + dp(SETTINGS_SECTION_GAP_DP);
 
-            y = drawSettingsSectionLabel(c, panel.left + dp(22), y, s(R.string.settings_about), draw);
+            y = drawSettingsSectionLabel(c, startX(panel, dp(22)), y, s(R.string.settings_about), draw);
             RectF about = new RectF(left, y, right, y + dp(SETTINGS_ROW_HEIGHT_DP));
             if (draw) {
                 drawSettingsLinkCard(c,
@@ -2207,7 +2222,7 @@ public class MainActivity extends Activity {
         private float drawSettingsSectionLabel(Canvas c, float x, float y, String label, boolean draw) {
             if (draw) {
                 text.setFakeBoldText(false);
-                text.setTextAlign(Paint.Align.LEFT);
+                text.setTextAlign(startAlign());
                 text.setTextSize(dp(13));
                 text.setColor(primaryText);
                 c.drawText(label, x, y, text);
@@ -2224,18 +2239,18 @@ public class MainActivity extends Activity {
             p.setColor(outline);
             c.drawRoundRect(cardBounds, dp(13), dp(13), p);
 
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setTextSize(dp(13));
             text.setColor(primaryText);
-            c.drawText(title, cardBounds.left + dp(14), cardBounds.top + dp(19), text);
+            c.drawText(title, startX(cardBounds, dp(14)), cardBounds.top + dp(19), text);
             text.setTextSize(dp(10.5f));
             text.setColor(secondaryText);
-            drawFittedText(c, description, cardBounds.left + dp(14), cardBounds.top + dp(36),
+            drawFittedText(c, description, startX(cardBounds, dp(14)), cardBounds.top + dp(36),
                     cardBounds.width() - dp(50), dp(10.5f), dp(8.5f), false);
             text.setTextAlign(Paint.Align.CENTER);
             text.setTextSize(dp(20));
             text.setColor(accent);
-            c.drawText("\u203a", cardBounds.right - dp(22), cardBounds.centerY() + dp(7), text);
+            c.drawText(isRtl() ? "\u2039" : "\u203a", endX(cardBounds, dp(22)), cardBounds.centerY() + dp(7), text);
         }
 
         private void drawSettingsToggleCard(
@@ -2256,9 +2271,9 @@ public class MainActivity extends Activity {
             float switchWidth = dp(44);
             float switchHeight = dp(24);
             RectF toggle = new RectF(
-                    cardBounds.right - switchWidth - dp(14),
+                    endX(cardBounds, dp(14), switchWidth),
                     cardBounds.centerY() - switchHeight / 2f,
-                    cardBounds.right - dp(14),
+                    endX(cardBounds, dp(14), switchWidth) + switchWidth,
                     cardBounds.centerY() + switchHeight / 2f);
 
             p.setStyle(Paint.Style.FILL);
@@ -2270,23 +2285,23 @@ public class MainActivity extends Activity {
             c.drawRoundRect(toggle, toggle.height() / 2f, toggle.height() / 2f, p);
 
             float knobRadius = dp(9);
-            float knobX = enabled ? toggle.right - dp(12) : toggle.left + dp(12);
+            float knobX = enabled == isRtl() ? toggle.left + dp(12) : toggle.right - dp(12);
             p.setColor(available
                     ? (enabled ? Color.WHITE : (dark ? Color.rgb(214, 207, 200) : Color.WHITE))
                     : alpha(Color.WHITE, 145));
             c.drawCircle(knobX, toggle.centerY(), knobRadius, p);
 
-            float textWidth = toggle.left - cardBounds.left - dp(24);
-            text.setTextAlign(Paint.Align.LEFT);
+            float textWidth = Math.abs((isRtl() ? toggle.right : toggle.left) - startX(cardBounds, dp(14))) - dp(10);
+            text.setTextAlign(startAlign());
             text.setTextSize(dp(13));
             text.setColor(available ? primaryText : alpha(primaryText, 145));
-            c.drawText(title, cardBounds.left + dp(14), cardBounds.top + dp(19), text);
+            c.drawText(title, startX(cardBounds, dp(14)), cardBounds.top + dp(19), text);
             text.setTextSize(dp(10.5f));
             text.setColor(available ? secondaryText : alpha(secondaryText, 145));
             drawFittedText(
                     c,
                     description,
-                    cardBounds.left + dp(14),
+                    startX(cardBounds, dp(14)),
                     cardBounds.top + dp(36),
                     textWidth,
                     dp(10.5f),
@@ -2351,7 +2366,7 @@ public class MainActivity extends Activity {
             c.drawRoundRect(bounds, dp(14), dp(14), p);
 
             float artSize = Math.min(dp(32), Math.min(bounds.height() - dp(10), bounds.width() * .34f));
-            float artLeft = bounds.left + dp(6);
+            float artLeft = startX(bounds, dp(6), artSize);
             float artTop = bounds.centerY() - artSize / 2f;
             RectF art = new RectF(artLeft, artTop, artLeft + artSize, artTop + artSize);
             Rect previewSource = companionSourceBoundsForPose(CompanionPageState.Pose.SLEEPING);
@@ -2376,9 +2391,10 @@ public class MainActivity extends Activity {
                         bitmapPaint);
             }
 
-            float textLeft = art.right + dp(5);
-            float textWidth = Math.max(dp(1), bounds.right - dp(6) - textLeft);
-            float textCenterX = textLeft + textWidth / 2f;
+            float textStart = isRtl() ? art.left - dp(5) : art.right + dp(5);
+            float textEnd = isRtl() ? bounds.left + dp(6) : bounds.right - dp(6);
+            float textWidth = Math.max(dp(1), Math.abs(textEnd - textStart));
+            float textCenterX = (textStart + textEnd) / 2f;
             drawCenteredFittedText(
                     c,
                     companionTitleText(snapshot),
@@ -2488,14 +2504,15 @@ public class MainActivity extends Activity {
             float topInset = systemTopInset();
             float headerTop = topInset + dp(12);
             float headerHeight = dp(44);
-            RectF close = new RectF(dp(12), headerTop, dp(56), headerTop + headerHeight);
+            RectF close = startRect(0f, w, dp(12), dp(44), headerTop, headerHeight);
             drawCompanionPageClose(c, close);
             targets.add(new TouchTarget(close, this::closeCompanionPage));
 
-            RectF balance = new RectF(w - dp(100), headerTop, w - dp(14), headerTop + headerHeight);
+            RectF balance = endRect(0f, w, dp(14), dp(86), headerTop, headerHeight);
             drawCompanionPageBalance(c, balance, companion.presentation.balance);
-            RectF title = new RectF(close.right + dp(4), headerTop, balance.left - dp(4),
-                    headerTop + headerHeight);
+            RectF title = isRtl()
+                    ? new RectF(balance.right + dp(4), headerTop, close.left - dp(4), headerTop + headerHeight)
+                    : new RectF(close.right + dp(4), headerTop, balance.left - dp(4), headerTop + headerHeight);
             drawCompanionPageTitle(c, title, companion.presentation);
             targets.add(new TouchTarget(title, this::openCompanionNameEditor));
             float controlsTop = headerTop + headerHeight + dp(10);
@@ -2519,9 +2536,12 @@ public class MainActivity extends Activity {
             p.setStyle(Paint.Style.STROKE);
             p.setStrokeWidth(dp(2));
             p.setColor(primaryText);
-            c.drawLine(bounds.left + dp(16), bounds.centerY(), bounds.right - dp(13), bounds.centerY(), p);
-            c.drawLine(bounds.left + dp(16), bounds.centerY(), bounds.left + dp(25), bounds.top + dp(13), p);
-            c.drawLine(bounds.left + dp(16), bounds.centerY(), bounds.left + dp(25), bounds.bottom - dp(13), p);
+            float point = isRtl() ? bounds.right - dp(16) : bounds.left + dp(16);
+            float tail = isRtl() ? bounds.left + dp(13) : bounds.right - dp(13);
+            float wing = isRtl() ? bounds.right - dp(25) : bounds.left + dp(25);
+            c.drawLine(point, bounds.centerY(), tail, bounds.centerY(), p);
+            c.drawLine(point, bounds.centerY(), wing, bounds.top + dp(13), p);
+            c.drawLine(point, bounds.centerY(), wing, bounds.bottom - dp(13), p);
         }
 
         private void drawCompanionPageBalance(Canvas c, RectF bounds, long balance) {
@@ -2529,16 +2549,16 @@ public class MainActivity extends Activity {
             p.setColor(dark ? alpha(Color.WHITE, 22) : alpha(accent, 22));
             c.drawRoundRect(bounds, dp(14), dp(14), p);
             drawCompanionTokenSymbol(c, new RectF(
-                    bounds.left + dp(8),
+                    startX(bounds, dp(8), dp(21)),
                     bounds.top + dp(10),
-                    bounds.left + dp(29),
+                    startX(bounds, dp(8), dp(21)) + dp(21),
                     bounds.bottom - dp(10)),
                     false);
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setTextSize(dp(15));
             text.setFakeBoldText(true);
             text.setColor(primaryText);
-            drawFittedText(c, String.valueOf(balance), bounds.left + dp(34), bounds.centerY() + dp(5),
+            drawFittedText(c, String.valueOf(balance), startX(bounds, dp(34)), bounds.centerY() + dp(5),
                     bounds.width() - dp(39), dp(15), dp(9), true);
             text.setFakeBoldText(false);
         }
@@ -2550,16 +2570,14 @@ public class MainActivity extends Activity {
             if (bounds.width() <= dp(24)) return;
             float badgeSize = Math.min(dp(24), bounds.height() - dp(12));
             RectF badge = new RectF(
-                    bounds.left,
+                    startX(bounds, 0f, badgeSize),
                     bounds.centerY() - badgeSize / 2f,
-                    bounds.left + badgeSize,
+                    startX(bounds, 0f, badgeSize) + badgeSize,
                     bounds.centerY() + badgeSize / 2f);
             drawEditBadge(c, badge);
-            RectF titleArea = new RectF(
-                    badge.right + dp(4),
-                    bounds.top,
-                    bounds.right,
-                    bounds.bottom);
+            RectF titleArea = isRtl()
+                    ? new RectF(bounds.left, bounds.top, badge.left - dp(4), bounds.bottom)
+                    : new RectF(badge.right + dp(4), bounds.top, bounds.right, bounds.bottom);
             text.setColor(primaryText);
             drawCenteredFittedTextInArea(
                     c,
@@ -2580,8 +2598,10 @@ public class MainActivity extends Activity {
             float width = (bounds.width() - gap * 2f) / interactions.size();
             for (int i = 0; i < interactions.size(); i++) {
                 CompanionInteractionCatalog.Entry interaction = interactions.get(i);
-                RectF control = new RectF(bounds.left + i * (width + gap), bounds.top,
-                        bounds.left + i * (width + gap) + width, bounds.bottom);
+                float x = isRtl()
+                        ? bounds.right - width - i * (width + gap)
+                        : bounds.left + i * (width + gap);
+                RectF control = new RectF(x, bounds.top, x + width, bounds.bottom);
                 drawCompanionPageControl(c, control, interaction, balance, interactionsLocked);
                 if (!interactionsLocked) {
                     targets.add(new TouchTarget(
@@ -2606,24 +2626,24 @@ public class MainActivity extends Activity {
             p.setStrokeWidth(dp(1));
             p.setColor(affordable ? outline : alpha(outline, dark ? 90 : 105));
             c.drawRoundRect(bounds, dp(12), dp(12), p);
-            RectF icon = new RectF(bounds.left + dp(7), bounds.top + dp(8), bounds.left + dp(27), bounds.top + dp(28));
+            RectF icon = new RectF(startX(bounds, dp(7), dp(20)), bounds.top + dp(8), startX(bounds, dp(7), dp(20)) + dp(20), bounds.top + dp(28));
             drawCompanionControlSymbol(c, icon, interaction.id, !affordable);
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setFakeBoldText(true);
             text.setColor(affordable ? primaryText : iconColor(primaryText, true));
-            drawFittedText(c, s(interaction.labelResId), icon.right + dp(4), bounds.top + dp(23),
+            drawFittedText(c, s(interaction.labelResId), isRtl() ? icon.left - dp(4) : icon.right + dp(4), bounds.top + dp(23),
                     bounds.width() - dp(36), dp(12), dp(8), true);
             text.setFakeBoldText(false);
             text.setColor(affordable ? secondaryText : iconColor(secondaryText, true));
             float costIconSize = dp(13);
             RectF costIcon = new RectF(
-                    bounds.left + dp(9),
+                    startX(bounds, dp(9), costIconSize),
                     bounds.bottom - dp(22),
-                    bounds.left + dp(9) + costIconSize,
+                    startX(bounds, dp(9), costIconSize) + costIconSize,
                     bounds.bottom - dp(9));
             drawCompanionTokenSymbol(c, costIcon, !affordable);
-            drawFittedText(c, String.valueOf(interaction.cost), costIcon.right + dp(3),
-                    bounds.bottom - dp(10), bounds.right - dp(9) - costIcon.right,
+            drawFittedText(c, String.valueOf(interaction.cost), isRtl() ? costIcon.left - dp(3) : costIcon.right + dp(3),
+                    bounds.bottom - dp(10), bounds.width() - dp(36),
                     dp(14), dp(8), true);
         }
 
@@ -3246,21 +3266,21 @@ public class MainActivity extends Activity {
             float chevronWidth = dp(24);
             float textWidth = bounds.width() - dp(16) - dp(16) - chevronWidth - dp(8);
 
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setFakeBoldText(true);
             text.setTextSize(dp(14));
             text.setColor(primaryText);
-            c.drawText(label, bounds.left + dp(16), bounds.centerY() - dp(3), text);
+            c.drawText(label, startX(bounds, dp(16)), bounds.centerY() - dp(3), text);
 
             text.setFakeBoldText(false);
             text.setTextSize(dp(10.5f));
             text.setColor(secondaryText);
-            c.drawText(ellipsizeText(value, textWidth), bounds.left + dp(16), bounds.centerY() + dp(15), text);
+            c.drawText(ellipsizeText(value, textWidth), startX(bounds, dp(16)), bounds.centerY() + dp(15), text);
 
             text.setTextAlign(Paint.Align.CENTER);
             text.setTextSize(dp(17));
             text.setColor(accent);
-            c.drawText(active ? "\u2303" : "\u2304", bounds.right - dp(22), bounds.centerY() + dp(6), text);
+            c.drawText(active ? "\u2303" : "\u2304", endX(bounds, dp(22)), bounds.centerY() + dp(6), text);
         }
 
         private float layoutSettingsSelectorMenu(
@@ -3311,7 +3331,13 @@ public class MainActivity extends Activity {
                         s(R.string.language_english),
                         s(R.string.language_spanish),
                         s(R.string.language_french),
-                        s(R.string.language_portuguese_portugal)
+                        s(R.string.language_portuguese_portugal),
+                        s(R.string.language_turkish),
+                        s(R.string.language_arabic),
+                        s(R.string.language_polish),
+                        s(R.string.language_russian),
+                        s(R.string.language_ukrainian),
+                        s(R.string.language_romanian)
                 };
             }
             return new String[] {
@@ -3400,16 +3426,16 @@ public class MainActivity extends Activity {
             p.setStrokeWidth(dp(1));
             p.setColor(selected ? accent : outline);
             c.drawRoundRect(row, dp(13), dp(13), p);
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setTextSize(dp(13.5f));
             text.setFakeBoldText(selected);
             text.setColor(primaryText);
-            c.drawText(ellipsizeText(label, row.width() - dp(54)), row.left + dp(14), row.centerY() + dp(5), text);
+            c.drawText(ellipsizeText(label, row.width() - dp(54)), startX(row, dp(14)), row.centerY() + dp(5), text);
             text.setFakeBoldText(false);
             if (selected) {
                 p.setStyle(Paint.Style.FILL);
                 p.setColor(accent);
-                c.drawCircle(row.right - dp(21), row.centerY(), dp(6.5f), p);
+                c.drawCircle(endX(row, dp(21)), row.centerY(), dp(6.5f), p);
             }
         }
 
@@ -3426,7 +3452,10 @@ public class MainActivity extends Activity {
             int[] labels = {
                     R.string.language_system, R.string.language_german, R.string.language_english,
                     R.string.language_spanish, R.string.language_french,
-                    R.string.language_portuguese_portugal
+                    R.string.language_portuguese_portugal, R.string.language_turkish,
+                    R.string.language_arabic, R.string.language_polish,
+                    R.string.language_russian, R.string.language_ukrainian,
+                    R.string.language_romanian
             };
             return s(labels[AppLanguage.indexOf(uiPrefs.getString(
                     AppLanguage.PREFERENCE_KEY, AppLanguage.SYSTEM))]);
@@ -3619,12 +3648,12 @@ public class MainActivity extends Activity {
         }
 
         private void drawPortionInfoBody(Canvas c, RectF body, float y) {
-            text.setTextAlign(Paint.Align.LEFT);
+            text.setTextAlign(startAlign());
             text.setColor(primaryText);
             text.setTextSize(dp(11.4f));
             y = drawWrappedText(c,
                     s(R.string.portion_help_intro),
-                    body.left,
+                    startX(body, 0f),
                     y,
                     body.width(),
                     dp(16));
@@ -3633,9 +3662,9 @@ public class MainActivity extends Activity {
             String[] entries = a(R.array.portion_help_bullets);
 
             text.setTextSize(dp(10.8f));
-            float bulletX = body.left + dp(4);
-            float textX = body.left + dp(18);
-            float maxTextWidth = body.right - textX;
+            float bulletX = startX(body, dp(4));
+            float textX = startX(body, dp(18));
+            float maxTextWidth = body.width() - dp(18);
             for (String entry : entries) {
                 y = drawWrappedBullet(c, entry, bulletX, textX, y, maxTextWidth, dp(15));
                 y += dp(2);
@@ -3646,7 +3675,7 @@ public class MainActivity extends Activity {
             text.setColor(secondaryText);
             drawWrappedText(c,
                     s(R.string.portion_help_source_note),
-                    body.left,
+                    startX(body, 0f),
                     y,
                     body.width(),
                     dp(14.2f));
@@ -3778,7 +3807,7 @@ public class MainActivity extends Activity {
 
             float y = panel.top + headerTopPad;
             RectF avatar = new RectF(panel.centerX() - avatarSize / 2f, y, panel.centerX() + avatarSize / 2f, y + avatarSize);
-            drawAboutWolf(c, avatar);
+            drawAboutBrand(c, avatar);
             y = avatar.bottom + dp(20);
 
             text.setTextAlign(Paint.Align.CENTER);
@@ -4748,9 +4777,9 @@ public class MainActivity extends Activity {
             c.restore();
         }
 
-        private void drawAboutWolf(Canvas c, RectF r) {
-            if (aboutWolfBmp != null) {
-                drawCircularBitmapIcon(c, aboutWolfBmp, r);
+        private void drawAboutBrand(Canvas c, RectF r) {
+            if (aboutBrandBmp != null) {
+                drawCircularBitmapIcon(c, aboutBrandBmp, r);
                 return;
             }
             drawLambBeeAvatar(c, r);
@@ -5121,6 +5150,7 @@ public class MainActivity extends Activity {
                             R.string.report_generated_on_format,
                             PyramidReportFormat.day(LocalDate.now())),
                     s(R.string.report_pyramid_definition),
+                    s(R.string.license_bzfe),
                     s(R.string.report_notice),
                     s(R.string.report_page_format));
         }
@@ -5961,10 +5991,11 @@ public class MainActivity extends Activity {
                 int subtype = PyramidScheme.subtypeForPosition(position);
                 int category = CATEGORY_BY_SUBTYPE[subtype];
                 int group = GROUP_BY_POSITION[position];
-                ps.totalByCat[category]++;
+                boolean drinks = subtype == PyramidScheme.SUBTYPE_DRINKS;
+                if (!drinks) ps.totalByCat[category]++;
                 ps.totalByGroup[group]++;
                 if (countUsed && d.ticks[position]) {
-                    ps.usedByCat[category]++;
+                    if (!drinks) ps.usedByCat[category]++;
                     ps.usedByGroup[group]++;
                 }
             }
@@ -5973,8 +6004,11 @@ public class MainActivity extends Activity {
                     int extra = d.subtypeExtras[subtype];
                     int category = CATEGORY_BY_SUBTYPE[subtype];
                     int group = GROUP_BY_SUBTYPE[subtype];
-                    ps.usedByCat[category] += extra;
-                    ps.usedExtraByCat[category] += extra;
+                    boolean drinks = subtype == PyramidScheme.SUBTYPE_DRINKS;
+                    if (!drinks) {
+                        ps.usedByCat[category] += extra;
+                        ps.usedExtraByCat[category] += extra;
+                    }
                     ps.usedByGroup[group] += extra;
                 }
             }
@@ -6273,6 +6307,52 @@ public class MainActivity extends Activity {
 
         private float dp(float v) {
             return v * getResources().getDisplayMetrics().density;
+        }
+
+        private boolean isRtl() {
+            return getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+        }
+
+        private Paint.Align startAlign() {
+            return isRtl() ? Paint.Align.RIGHT : Paint.Align.LEFT;
+        }
+
+        private Paint.Align endAlign() {
+            return isRtl() ? Paint.Align.LEFT : Paint.Align.RIGHT;
+        }
+
+        private float startX(RectF bounds, float inset) {
+            return isRtl() ? bounds.right - inset : bounds.left + inset;
+        }
+
+        private float startX(RectF bounds, float inset, float width) {
+            return isRtl() ? bounds.right - inset - width : bounds.left + inset;
+        }
+
+        private float endX(RectF bounds, float inset) {
+            return isRtl() ? bounds.left + inset : bounds.right - inset;
+        }
+
+        private float endX(RectF bounds, float inset, float width) {
+            return isRtl() ? bounds.left + inset : bounds.right - inset - width;
+        }
+
+        private RectF startRect(float left, float right, float inset, float width, float top, float height) {
+            float x = isRtl() ? right - inset - width : left + inset;
+            return new RectF(x, top, x + width, top + height);
+        }
+
+        private RectF endRect(float left, float right, float inset, float width, float top, float height) {
+            float x = isRtl() ? left + inset : right - inset - width;
+            return new RectF(x, top, x + width, top + height);
+        }
+
+        private float calendarCellLeft(float left, float right, float width, int column) {
+            return isRtl() ? right - (column + 1) * width : left + column * width;
+        }
+
+        private float calendarCellCenter(float left, float right, float width, int column) {
+            return calendarCellLeft(left, right, width, column) + width / 2f;
         }
 
         private float systemBottomInset() {
@@ -6653,7 +6733,7 @@ public class MainActivity extends Activity {
             foodNutsSeedsBmp = BitmapFactory.decodeResource(
                     getResources(),
                     R.drawable.food_nuts_seeds);
-            aboutWolfBmp = BitmapFactory.decodeResource(getResources(), R.drawable.about_wolf);
+            aboutBrandBmp = BitmapFactory.decodeResource(getResources(), R.drawable.k2040_omnisexual_icon);
             appSymbolBmp = BitmapFactory.decodeResource(getResources(), R.drawable.ic_lamb_bee_carrot);
             companionArtworkIdleBmp = BitmapFactory.decodeResource(
                     getResources(), R.drawable.companion_lamb_pose_idle);

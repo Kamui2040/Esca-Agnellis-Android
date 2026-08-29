@@ -2,7 +2,7 @@
 
 Dieses Dokument enthält nur benutzerrelevante Änderungen. Interne Entwicklungs-, Prüf- und Veröffentlichungsabläufe gehören nicht in das öffentliche Änderungsprotokoll.
 
-## 0.17.0 — unveröffentlicht
+## 0.17.0 — 2026-08-29
 
 - Türkisch, Arabisch, Polnisch, Russisch, Ukrainisch und Rumänisch als zusätzliche App-Sprachen.
 - Verbesserte Rechts-nach-links-Darstellung und Bedienung für Arabisch.

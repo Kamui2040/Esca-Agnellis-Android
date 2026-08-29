@@ -11,11 +11,11 @@ from apk_hardening import ROOT, inspect_bytes, ok, run, verify_common
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Verify a signed Esca developer release APK.")
-    parser.add_argument("--apk", default="app/build/outputs/apk/release/Esca-Agnellis-v0.16.0-vc40-release.apk")
+    parser.add_argument("--apk", default="app/build/outputs/apk/release/Esca-Agnellis-v0.17.0-vc41-release.apk")
     parser.add_argument("--mapping", default="app/build/outputs/mapping/release/mapping.txt")
     parser.add_argument("--package", default="com.k2040.escaagnellis")
-    parser.add_argument("--version-name", default="0.16.0")
-    parser.add_argument("--version-code", type=int, default=40)
+    parser.add_argument("--version-name", default="0.17.0")
+    parser.add_argument("--version-code", type=int, default=41)
     parser.add_argument("--expected-cert-sha256", required=True)
     return parser.parse_args()
 

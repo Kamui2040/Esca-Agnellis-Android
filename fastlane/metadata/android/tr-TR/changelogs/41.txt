@@ -1,0 +1,7 @@
+0.17.0 sürümündeki yenilikler:
+• Türkçe, Arapça, Lehçe, Rusça, Ukraynaca ve Romence eklendi
+• Arapça için sağdan sola görünüm iyileştirildi
+• içecek sayımı ve istatistik görünümü düzeltildi
+• BZfE/BLE kaynak notları ve PDF atıfları netleştirildi
+• eski kurt simgesi K2040 simgesiyle değiştirildi
+• hesap, reklam veya takip olmadan yerel çalışmaya devam eder

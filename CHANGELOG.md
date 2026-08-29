@@ -2,6 +2,15 @@
 
 Dieses Dokument enthält nur benutzerrelevante Änderungen. Interne Entwicklungs-, Prüf- und Veröffentlichungsabläufe gehören nicht in das öffentliche Änderungsprotokoll.
 
+## 0.17.0 — unveröffentlicht
+
+- Türkisch, Arabisch, Polnisch, Russisch, Ukrainisch und Rumänisch als zusätzliche App-Sprachen.
+- Verbesserte Rechts-nach-links-Darstellung und Bedienung für Arabisch.
+- Getränkezählung und Statistikdarstellung korrigiert; Getränke werden getrennt ausgewiesen und nicht mehr in grüne Gesamtwerte eingerechnet.
+- Quellenhinweise und unabhängige Einordnung zu BZfE/BLE präzisiert, einschließlich der Hinweise in lokalen PDF-Berichten.
+- Alte Wolf-Grafik durch das gemeinsame K2040-Symbol ersetzt.
+- Weiterhin keine Internet-Berechtigung, Konten, Werbung, Telemetrie, Analyse, Cloud-Synchronisierung oder Hintergrunddatenerfassung.
+
 ## 0.16.0 — 2026-08-14
 
 - Lokale PDF-Berichte für ausgewählte Datumsbereiche mit Tages-, Wochen-, Monats- und Gesamtauswertung.

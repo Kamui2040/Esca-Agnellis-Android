@@ -12,7 +12,7 @@
 
 - Daily view with 22 default tiles across six visual levels
 - Overview and local statistics
-- German, English, Spanish, French and European Portuguese
+- German, English, Spanish, French, European Portuguese, Turkish, Arabic, Polish, Russian, Ukrainian and Romanian
 - System, standard and cozy pastel themes
 - Local backup and restore through Android document pickers
 - Local PDF reports for a user-selected date range

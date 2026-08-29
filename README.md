@@ -12,7 +12,7 @@
 
 - Tagesansicht mit 22 Standardfeldern in sechs visuellen Ebenen
 - Übersicht und lokale Statistiken
-- Deutsch, Englisch, Spanisch, Französisch und Europäisches Portugiesisch
+- Deutsch, Englisch, Spanisch, Französisch, Europäisches Portugiesisch, Türkisch, Arabisch, Polnisch, Russisch, Ukrainisch und Rumänisch
 - System-, Standard- und gemütliche Pastell-Themen
 - Lokale Sicherung und Wiederherstellung über Android-Dokumentauswahl
 - Lokale PDF-Berichte für frei gewählte Datumsbereiche

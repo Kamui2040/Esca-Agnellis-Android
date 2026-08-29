@@ -1,0 +1,7 @@
+New in 0.17.0:
+• added Turkish, Arabic, Polish, Russian, Ukrainian and Romanian
+• improved right-to-left presentation for Arabic
+• fixed drink counting and statistics display
+• clarified BZfE/BLE source notes and PDF attribution
+• replaced the old wolf symbol with the K2040 symbol
+• still local, with no account, ads or tracking

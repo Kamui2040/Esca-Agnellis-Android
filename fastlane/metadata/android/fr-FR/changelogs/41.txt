@@ -1,0 +1,7 @@
+Nouveautés de la version 0.17.0 :
+• ajout du turc, de l’arabe, du polonais, du russe, de l’ukrainien et du roumain
+• meilleure présentation de droite à gauche en arabe
+• correction du comptage des boissons et de l’affichage des statistiques
+• mentions de source BZfE/BLE et attribution des PDF clarifiées
+• ancien symbole du loup remplacé par le symbole K2040
+• toujours local, sans compte, publicité ni suivi

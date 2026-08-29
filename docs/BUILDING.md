@@ -48,7 +48,7 @@ Ein lokaler `release`-Build ohne diese Umgebungsvariable ist absichtlich möglic
 Die APK-Namen folgen diesem Muster:
 
 ```text
-app/build/outputs/apk/<buildType>/Esca-Agnellis-v0.16.0-vc40-<buildType>.apk
+app/build/outputs/apk/<buildType>/Esca-Agnellis-v0.17.0-vc41-<buildType>.apk
 ```
 
 Build-, APK-, Mapping-, Lint- und Testausgaben sind generiert und werden nicht versioniert.
@@ -71,7 +71,7 @@ Die älteren PowerShell-Prüfungen dürfen für Windows-Beitragende als Kompatib
 Ein akzeptierter Build muss insbesondere bestätigen:
 
 - Paket `com.k2040.escaagnellis` für `release`;
-- Version `0.16.0`, versionCode `40`;
+- Version `0.17.0`, versionCode `41`;
 - minSdk 26 und targetSdk 35;
 - nicht debuggable für `release`;
 - keine Internet-Berechtigung;

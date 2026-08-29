@@ -4,8 +4,8 @@ plugins {
     id 'com.android.application'
 }
 
-def escaVersionCode = 40
-def escaVersionName = '0.16.0'
+def escaVersionCode = 41
+def escaVersionName = '0.17.0'
 def signingPropertiesPath = System.getenv('ESCA_SIGNING_PROPERTIES')
 def signingProperties = new Properties()
 def signingPropertiesFile = signingPropertiesPath ? file(signingPropertiesPath) : null

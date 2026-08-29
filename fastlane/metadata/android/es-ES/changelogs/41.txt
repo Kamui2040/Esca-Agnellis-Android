@@ -1,0 +1,7 @@
+Novedades de 0.17.0:
+• se añaden turco, árabe, polaco, ruso, ucraniano y rumano
+• mejor presentación de derecha a izquierda en árabe
+• corregidos el recuento de bebidas y las estadísticas
+• aclaradas las referencias a BZfE/BLE y la atribución en los PDF
+• sustituido el antiguo símbolo del lobo por el símbolo K2040
+• sigue siendo local, sin cuenta, anuncios ni seguimiento

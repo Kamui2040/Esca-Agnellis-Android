@@ -1,0 +1,7 @@
+Nowości w wersji 0.17.0:
+• dodano języki: turecki, arabski, polski, rosyjski, ukraiński i rumuński
+• ulepszono układ od prawej do lewej dla języka arabskiego
+• poprawiono zliczanie napojów i wyświetlanie statystyk
+• doprecyzowano informacje o źródłach BZfE/BLE i atrybucję w plikach PDF
+• stary symbol wilka zastąpiono symbolem K2040
+• nadal lokalnie, bez konta, reklam i śledzenia

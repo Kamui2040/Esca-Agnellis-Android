@@ -1,0 +1,7 @@
+Noutăți în versiunea 0.17.0:
+• au fost adăugate limbile turcă, arabă, poloneză, rusă, ucraineană și română
+• afișare îmbunătățită de la dreapta la stânga pentru arabă
+• corectate numărarea băuturilor și afișarea statisticilor
+• clarificate sursele BZfE/BLE și atribuirea din PDF-uri
+• vechiul simbol cu lup a fost înlocuit cu simbolul K2040
+• aplicația rămâne locală, fără cont, reclame sau urmărire

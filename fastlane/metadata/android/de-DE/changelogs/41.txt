@@ -1,0 +1,7 @@
+Neu in 0.17.0:
+• Türkisch, Arabisch, Polnisch, Russisch, Ukrainisch und Rumänisch hinzugefügt
+• Arabisch mit verbesserter Rechts-nach-links-Darstellung
+• Getränkezählung und Statistikdarstellung korrigiert
+• Quellenhinweise zu BZfE/BLE und in PDF-Berichten klarer gemacht
+• altes Wolf-Symbol durch das K2040-Symbol ersetzt
+• weiterhin lokal, ohne Konto, Werbung oder Tracking
